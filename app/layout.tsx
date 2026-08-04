@@ -1,4 +1,4 @@
-import { Container, Theme, ThemePanel } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 
 import "@radix-ui/themes/styles.css";
@@ -30,7 +30,6 @@ export default function RootLayout({
           <NavBar />
           <main className="p-5">
             <Container>{children}</Container>
-            <ThemePanel />
           </main>
         </Theme>
       </body>

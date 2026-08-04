@@ -23,7 +23,7 @@ export default NavBar;
 const NavLinks = () => {
   const links = [
     { label: "About", href: "#about" },
-    { label: "Skills", href: "/" },
+    { label: "Skills", href: "#skills" },
     { label: "Projects", href: "/" },
     { label: "Contact", href: "/" },
     { label: "Resume", href: "/" },
