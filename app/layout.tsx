@@ -1,18 +1,16 @@
 import { Container, Theme, ThemePanel } from "@radix-ui/themes";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import NavBar from "./NavBar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Quicksand } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const quicksand = Quicksand({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-quicksand",
 });
 
 export const metadata: Metadata = {
@@ -26,14 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Theme accentColor="orange">
           <NavBar />
-          <main>
+          <main className="p-5">
             <Container>{children}</Container>
             <ThemePanel />
           </main>
