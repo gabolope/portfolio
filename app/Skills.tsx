@@ -31,7 +31,7 @@ const Skills = () => {
     <section id="skills">
       {skillCategories.map((category) => (
         <Box key={category.title} mb="6">
-          <Heading mb="3" size="5">
+          <Heading mb="3" size="6">
             {category.title}
           </Heading>
 

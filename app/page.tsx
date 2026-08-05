@@ -1,4 +1,6 @@
 import About from "./About";
+import LinkButton from "./components/LinkButton";
+import Projects from "./Projects";
 import Skills from "./Skills";
 
 export default function Home() {
@@ -9,6 +11,9 @@ export default function Home() {
       </div>
       <div>
         <Skills />
+      </div>
+      <div>
+        <Projects />
       </div>
     </>
   );

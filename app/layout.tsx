@@ -11,6 +11,25 @@ const quicksand = Quicksand({
   variable: "--font-quicksand",
 });
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <Theme accentColor="orange">
+          <NavBar />
+          <main className="p-5">
+            <Container>{children}</Container>
+          </main>
+        </Theme>
+      </body>
+    </html>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Gabriel Alejandro López | Frontend Developer",
   description:
@@ -57,22 +76,3 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Theme accentColor="orange">
-          <NavBar />
-          <main className="p-5">
-            <Container>{children}</Container>
-          </main>
-        </Theme>
-      </body>
-    </html>
-  );
-}
