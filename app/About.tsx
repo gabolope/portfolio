@@ -1,21 +1,34 @@
-import { Card, Flex, Grid, Heading, Text } from "@radix-ui/themes";
+import { Box, Card, Flex, Grid, Heading, Text } from "@radix-ui/themes";
 
 const About = () => {
   return (
     <section id="about">
-      <Heading align="center" mb="5">
+      <Heading align="center" size={{ initial: "8", sm: "9" }} mb="7">
         About My
       </Heading>
-      <Grid gap="5" columns={{ initial: "1", sm: "3" }}>
+      <Flex gap="5" wrap="wrap" justify="center" mb="7">
         {cards.map((card) => (
-          <Card key={card.title} className="flex-1" variant="surface">
-            <Heading align="center" size="5" mb="2">
-              {card.title}
-            </Heading>
-            <Text align="center">{card.text}</Text>
-          </Card>
+          <Box
+            key={card.title}
+            width={{
+              initial: "100%",
+              sm: "calc(50% - 12px)", // 2 columnas (resta la mitad del gap de 24px)
+              md: "calc(33.333% - 16px)", // 3 columnas (resta 1/3 del gap total de 48px)
+            }}
+          >
+            <Card
+              className="flex-1"
+              variant="surface"
+              style={{ height: "100%" }}
+            >
+              <Heading align="center" size={{ initial: "7", sm: "8" }} mb="2">
+                {card.title}
+              </Heading>
+              <Text align="center">{card.text}</Text>
+            </Card>
+          </Box>
         ))}
-      </Grid>
+      </Flex>
     </section>
   );
 };

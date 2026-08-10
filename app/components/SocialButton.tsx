@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import Link from "next/link";
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons";
-import styles from "./LinkButton.module.css";
+import styles from "./SocialButton.module.css";
 
 interface Props {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface Props {
   openInNewTab?: boolean;
 }
 
-const LinkButton = ({
+const SocialButton = ({
   children,
   href,
   color = "#212529",
@@ -24,12 +24,9 @@ const LinkButton = ({
       target={openInNewTab ? "_blank" : undefined}
       rel={openInNewTab ? "noopener noreferrer" : undefined}
     >
-      <span className={styles.text}>{children}</span>
-      <span className={styles.iconWrapper}>
-        <DoubleArrowRightIcon />
-      </span>
+      <span className={styles.content}>{children}</span>
     </Link>
   );
 };
 
-export default LinkButton;
+export default SocialButton;

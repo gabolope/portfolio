@@ -1,12 +1,12 @@
 import About from "./About";
-import LinkButton from "./components/LinkButton";
+import Contact from "./Contact";
 import Projects from "./Projects";
 import Skills from "./Skills";
 
 export default function Home() {
   return (
     <>
-      <div className="wavy py-4 mb-8">
+      <div className="py-4 mb-8">
         <About />
       </div>
       <div>
@@ -14,6 +14,9 @@ export default function Home() {
       </div>
       <div>
         <Projects />
+      </div>
+      <div>
+        <Contact />
       </div>
     </>
   );
