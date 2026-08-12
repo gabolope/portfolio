@@ -1,10 +1,11 @@
-import { Container, Theme, ThemePanel } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import NavBar from "./NavBar";
 import { Quicksand } from "next/font/google";
 import HoverBar from "./HoverBar";
+import { Providers } from "./ThemeProvider";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -18,16 +19,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${quicksand.variable}  h-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="min-h-full flex flex-col">
-        <Theme accentColor="tomato">
-          <NavBar />
-          <HoverBar />
-          <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
-            <Container>{children}</Container>
-          </main>
-          <ThemePanel />
-        </Theme>
+        <Providers>
+          <Theme accentColor="tomato">
+            <NavBar />
+            <HoverBar />
+            <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
+              <Container>{children}</Container>
+            </main>
+          </Theme>
+        </Providers>
       </body>
     </html>
   );

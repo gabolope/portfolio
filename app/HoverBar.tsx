@@ -46,9 +46,7 @@ const HoverBar = () => {
             className={`group relative p-2 transition-all duration-300 ${styles.iconEnter} ${styles[`iconEnter${index + 1}`]}`}
             aria-label={link.label}
           >
-            <div className="hover:text-[var(--accent-9)] dark:hover:text-[var(--accent-9)] transition-all duration-200 hover:drop-shadow-[0_0_20px_var(--accent-9)] ">
-              {link.icon}
-            </div>
+            <div className="glow">{link.icon}</div>
           </Link>
         ))}
       </Flex>

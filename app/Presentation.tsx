@@ -5,16 +5,21 @@ const Presentation = () => {
   return (
     <Grid columns={{ initial: "1", md: "2" }} align="center" gap="6">
       <Box>
-        <Heading mb="4" size="7">
+        <Heading mb="4" size="7" weight="light">
           Hello! My name is
         </Heading>
-        <Heading mb="4" size="8" style={{ color: "var(--accent-9)" }}>
+        <Heading
+          mb="4"
+          size="8"
+          style={{ color: "var(--accent-9)" }}
+          weight="medium"
+        >
           Gabriel López
         </Heading>
-        <Heading mb="4" size="7">
+        <Heading mb="4" size="7" weight="light">
           and I am Frontend Developer.
         </Heading>
-        <Text as="p" size="5">
+        <Text as="p" size="5" weight="light">
           I'm a passionate Frontend Developer based in Argentina. I have a PhD
           in science. Specialized in React, TypeScript, and JavaScript, with
           experience integrating REST APIs, authentication, relational
