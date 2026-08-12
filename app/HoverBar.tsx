@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { useRef, useState, useEffect } from "react";
+import styles from "./HoverBar.module.css";
 
 const HoverBar = () => {
   const iconContainerRef = useRef<HTMLDivElement>(null);
@@ -42,10 +43,10 @@ const HoverBar = () => {
             href={link.href}
             target={link.target}
             rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-            className={`group relative transition-all duration-300 icon-enter icon-enter-${index + 1}`}
+            className={`group relative p-2 transition-all duration-300 ${styles.iconEnter} ${styles[`iconEnter${index + 1}`]}`}
             aria-label={link.label}
           >
-            <div className="p-2 hover:text-(--accent-9) dark:hover:text-(--accent-9) transition-colors duration-200">
+            <div className="hover:text-[var(--accent-9)] dark:hover:text-[var(--accent-9)] transition-all duration-200 hover:drop-shadow-[0_0_20px_var(--accent-9)] ">
               {link.icon}
             </div>
           </Link>

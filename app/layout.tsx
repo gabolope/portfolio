@@ -1,4 +1,4 @@
-import { Container, Theme } from "@radix-ui/themes";
+import { Container, Theme, ThemePanel } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
@@ -20,12 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Theme accentColor="bronze">
+        <Theme accentColor="tomato">
           <NavBar />
           <HoverBar />
           <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
             <Container>{children}</Container>
           </main>
+          <ThemePanel />
         </Theme>
       </body>
     </html>

@@ -38,9 +38,12 @@ const Skills = () => {
 
           <Flex wrap="wrap" gap="3">
             {category.skills.map((skill) => (
-              <Card key={skill.label}>
+              <Card
+                key={skill.label}
+                style={{ border: "1px solid var(--accent-7)" }}
+              >
                 <Flex gap="3" align="center">
-                  {skill.icon}
+                  <div style={{ color: " var(--accent-9)" }}>{skill.icon}</div>
                   <Text as="div" size="3" weight="medium">
                     {skill.label}
                   </Text>

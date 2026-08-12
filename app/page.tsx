@@ -1,11 +1,15 @@
 import About from "./About";
 import Contact from "./Contact";
+import Presentation from "./Presentation";
 import Projects from "./Projects";
 import Skills from "./Skills";
 
 export default function Home() {
   return (
     <>
+      <div className="py-4 mb-8">
+        <Presentation />
+      </div>
       <div className="py-4 mb-8">
         <About />
       </div>

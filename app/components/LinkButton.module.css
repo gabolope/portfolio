@@ -13,14 +13,14 @@
   border-radius: 5px;
   z-index: 0;
   overflow: hidden;
-  background: #fff;
+  background: var(--color-background);
   border: 2px solid var(--btn-color, #212529);
   color: var(--btn-color, #212529);
   text-decoration: none;
 }
 
 .slider:hover {
-  color: #fff;
+  color: var(--color-background);
 }
 
 .slider::after {

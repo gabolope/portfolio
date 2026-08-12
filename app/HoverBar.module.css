@@ -1,0 +1,28 @@
+/* Animaciones para aparición de botones */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconEnter {
+  animation: slideUpFade 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.iconEnter3 {
+  animation-delay: 400ms;
+}
+
+.iconEnter2 {
+  animation-delay: 600ms;
+}
+
+.iconEnter1 {
+  animation-delay: 800ms;
+}

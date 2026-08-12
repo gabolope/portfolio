@@ -19,7 +19,7 @@ const About = () => {
             <Card
               className="flex-1"
               variant="surface"
-              style={{ height: "100%" }}
+              style={{ height: "100%", border: "1px solid var(--accent-7)" }}
             >
               <Heading align="center" size={{ initial: "7", sm: "8" }} mb="2">
                 {card.title}

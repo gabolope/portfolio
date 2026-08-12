@@ -39,7 +39,7 @@ const NavLinks = () => {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="transition-colors duration-200 hover:text-[var(--accent-9)]"
+              className="transition-colors duration-200 hover:text-[var(--accent-9)] hover:drop-shadow-[0_0_20px_var(--accent-9)]"
             >
               {link.label}
             </Link>
