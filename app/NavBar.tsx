@@ -9,7 +9,7 @@ import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 const NavBar = () => {
   return (
-    <nav className="py-3 p-5 pl-5 pr-5 md:pl-20 md:pr-20 mb-5 border-b-2 border-(--accent-9) sm:text-xl ">
+    <nav className=" sticky top-0 z-40 py-3 p-5 pl-5 pr-5 md:pl-20 md:pr-20 mb-5 border-b-2 border-(--accent-9) sm:text-xl bg-[var(--color-background)]">
       <Container>
         <Flex justify="between" align="center">
           <Link

@@ -1,4 +1,7 @@
+"use client";
+
 import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
+import { useInView } from "react-intersection-observer";
 import { BsJavascript } from "react-icons/bs";
 import {
   FaCss3Alt,
@@ -37,18 +40,8 @@ const Skills = () => {
           </Heading>
 
           <Flex wrap="wrap" gap="3">
-            {category.skills.map((skill) => (
-              <Card
-                key={skill.label}
-                style={{ border: "1px solid var(--accent-7)" }}
-              >
-                <Flex gap="3" align="center">
-                  <div style={{ color: " var(--accent-9)" }}>{skill.icon}</div>
-                  <Text as="div" size="3" weight="medium">
-                    {skill.label}
-                  </Text>
-                </Flex>
-              </Card>
+            {category.skills.map((skill, index) => (
+              <SkillCard key={skill.label} skill={skill} index={index} />
             ))}
           </Flex>
         </Box>
@@ -58,6 +51,40 @@ const Skills = () => {
 };
 
 export default Skills;
+
+const SkillCard = ({
+  skill,
+  index,
+}: {
+  skill: { label: string; icon: React.ReactNode };
+  index: number;
+}) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+
+  const delay = index * 100; // delay entre cada card
+
+  return (
+    <Card
+      ref={ref}
+      style={{
+        border: "1px solid var(--accent-7)",
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateX(0)" : "translateX(-20px)",
+        transition: `all 0.5s ease-out ${delay}ms`,
+      }}
+    >
+      <Flex gap="3" align="center">
+        <div style={{ color: "var(--accent-9)" }}>{skill.icon}</div>
+        <Text as="div" size="3" weight="medium">
+          {skill.label}
+        </Text>
+      </Flex>
+    </Card>
+  );
+};
 
 const skillCategories = [
   {

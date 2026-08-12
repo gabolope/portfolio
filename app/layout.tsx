@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import { Quicksand } from "next/font/google";
 import HoverBar from "./HoverBar";
 import { Providers } from "./ThemeProvider";
+import Footer from "./Footer";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
             <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
               <Container>{children}</Container>
             </main>
+            <Footer />
           </Theme>
         </Providers>
       </body>

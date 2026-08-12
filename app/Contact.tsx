@@ -19,7 +19,10 @@ const Contact = () => {
               md: "calc(33.333% - 16px)", // 3 columnas (resta 1/3 del gap total de 48px)
             }}
           >
-            <Card variant="surface" style={{ height: "100%" }}>
+            <Card
+              variant="surface"
+              style={{ height: "100%", border: "1px solid var(--accent-7)" }}
+            >
               <Heading align="center" size={{ initial: "7", sm: "8" }} mb="2">
                 {card.title}
               </Heading>
