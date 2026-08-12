@@ -2,6 +2,7 @@ import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
 import { BsJavascript } from "react-icons/bs";
 import {
   FaCss3Alt,
+  FaDocker,
   FaGitAlt,
   FaGithub,
   FaNodeJs,
@@ -93,6 +94,7 @@ const skillCategories = [
   {
     title: "Tools",
     skills: [
+      { label: "Docker", icon: <FaDocker /> },
       { label: "Git", icon: <FaGitAlt /> },
       { label: "GitHub", icon: <FaGithub /> },
       { label: "Postman", icon: <SiPostman /> },

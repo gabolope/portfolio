@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const NavBar = () => {
   return (
-    <nav className="py-3 px-4 mb-5 border-b border-(--accent-9) sm:text-xl">
+    <nav className="py-3 px-4 mb-5 border-b-3 border-(--accent-9) sm:text-xl">
       <Container>
         <Flex justify="between">
           <Link href="/">Gabriel Alejandro López</Link>

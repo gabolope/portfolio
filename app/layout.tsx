@@ -4,6 +4,7 @@ import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import NavBar from "./NavBar";
 import { Quicksand } from "next/font/google";
+import HoverBar from "./HoverBar";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -19,9 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable}  h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Theme accentColor="orange">
+        <Theme accentColor="bronze">
           <NavBar />
-          <main className="p-5">
+          <HoverBar />
+          <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
             <Container>{children}</Container>
           </main>
         </Theme>

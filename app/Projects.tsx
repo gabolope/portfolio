@@ -16,11 +16,11 @@ const Projects = () => {
           gap="4"
           mb="6"
           columns={{ initial: "1", md: "2" }}
+          align="start"
         >
           <Box
             style={{
               position: "relative",
-
               aspectRatio: "5 / 3",
             }}
           >
@@ -35,10 +35,10 @@ const Projects = () => {
             <Heading mb="4" size="8">
               {project.title}
             </Heading>
-            <Text as="p" size="6" mb="4">
+            <Text as="p" size="5" mb="4">
               {project.madeWith.join(" · ")}
             </Text>
-            <Text as="p" size="6" mb="4">
+            <Text as="p" size="5" mb="4">
               {project.description}
             </Text>
             <Flex gap="3">
