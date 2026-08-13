@@ -1,9 +1,13 @@
 "use client";
 import { Container, Flex } from "@radix-ui/themes";
-import Link from "next/link";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
+import { useLanguage } from "./context/LanguageContext";
+import { translations } from "./translations";
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const { copyright } = translations[language].footer;
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -20,7 +24,7 @@ const Footer = () => {
               className="glow hover:scale-110 transition-transform duration-200"
             />
           </button>
-          <p>© 2026 Gabriel López. All rights reserved.</p>
+          <p>{copyright}</p>
         </Flex>
       </Container>
     </footer>

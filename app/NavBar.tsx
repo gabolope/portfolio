@@ -6,6 +6,8 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { useLanguage } from "./context/LanguageContext";
+import { translations } from "./translations";
 
 const NavBar = () => {
   return (
@@ -14,11 +16,7 @@ const NavBar = () => {
         <Flex justify="between" align="center">
           <Link
             href="/"
-            style={{
-              fontSize: "var(--font-size-7)",
-              fontWeight: "var(--font-weight-medium)",
-            }}
-            className="glow"
+            className="glow text-lg md:text-lg lg:text-2xl font-medium"
           >
             Gabriel López
           </Link>
@@ -32,17 +30,20 @@ const NavBar = () => {
 export default NavBar;
 
 const NavLinks = () => {
-  const links = [
-    { label: "About", href: "#about", openInNewTab: false },
-    { label: "Skills", href: "#skills", openInNewTab: false },
-    { label: "Projects", href: "#projects", openInNewTab: false },
-    { label: "Contact", href: "#contact", openInNewTab: false },
-    { label: "Resume", href: "/resume.pdf", openInNewTab: true },
-  ];
-
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const { about, skills, projects, contact, resume } =
+    translations[language].navbar;
+
+  const links = [
+    { label: about, href: "#about", openInNewTab: false },
+    { label: skills, href: "#skills", openInNewTab: false },
+    { label: projects, href: "#projects", openInNewTab: false },
+    { label: contact, href: "#contact", openInNewTab: false },
+    { label: resume, href: "/resume.pdf", openInNewTab: true },
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -62,7 +63,7 @@ const NavLinks = () => {
               <Link
                 href={link.href}
                 target={link.openInNewTab ? "_blank" : ""}
-                className="glow"
+                className="glow md:text-sm lg:text-2xl font-medium"
               >
                 {link.label}
               </Link>
@@ -80,6 +81,12 @@ const NavLinks = () => {
             <MdDarkMode size={25} />
           )}
         </button>
+        <button
+          onClick={() => setLanguage(language === "en" ? "es" : "en")}
+          className="p-2 rounded-lg glow md:text-sm lg:text-2xl"
+        >
+          {language === "en" ? "ES" : "EN"}
+        </button>
       </div>
 
       {/* Mobile - Theme Toggle + Hamburger ONLY */}
@@ -94,6 +101,12 @@ const NavLinks = () => {
           ) : (
             <MdDarkMode size={25} />
           )}
+        </button>
+        <button
+          onClick={() => setLanguage(language === "en" ? "es" : "en")}
+          className="p-2 rounded-lg glow"
+        >
+          {language === "en" ? "ES" : "EN"}
         </button>
         <button onClick={() => setOpen(!open)} aria-label="Toggle navigation">
           {open ? <Cross1Icon /> : <HamburgerMenuIcon />}

@@ -7,6 +7,7 @@ import { Quicksand } from "next/font/google";
 import HoverBar from "./HoverBar";
 import { Providers } from "./ThemeProvider";
 import Footer from "./Footer";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -27,14 +28,16 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Providers>
-          <Theme accentColor="tomato">
-            <NavBar />
-            <HoverBar />
-            <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
-              <Container>{children}</Container>
-            </main>
-            <Footer />
-          </Theme>
+          <LanguageProvider>
+            <Theme accentColor="tomato">
+              <NavBar />
+              <HoverBar />
+              <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
+                <Container>{children}</Container>
+              </main>
+              <Footer />
+            </Theme>
+          </LanguageProvider>
         </Providers>
       </body>
     </html>

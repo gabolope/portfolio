@@ -29,10 +29,68 @@ import {
 } from "react-icons/si";
 import { TbApi, TbBrandTypescript } from "react-icons/tb";
 import { TiHtml5 } from "react-icons/ti";
+import FadeInOnView from "./components/FadeInOnView";
+import { useLanguage } from "./context/LanguageContext";
+import { translations } from "./translations";
 
 const Skills = () => {
+  const { language } = useLanguage();
+  const { title, languages, frontend, backend, tools } =
+    translations[language].skills;
+
+  const skillCategories = [
+    {
+      title: languages,
+      skills: [
+        { label: "JavaScript", icon: <BsJavascript /> },
+        { label: "TypeScript", icon: <TbBrandTypescript /> },
+        { label: "HTML5", icon: <TiHtml5 /> },
+        { label: "CSS3", icon: <FaCss3Alt /> },
+        { label: "Python", icon: <FaPython /> },
+      ],
+    },
+    {
+      title: frontend,
+      skills: [
+        { label: "React", icon: <FaReact /> },
+        { label: "Next.js", icon: <RiNextjsLine /> },
+        { label: "Tailwind CSS", icon: <RiTailwindCssFill /> },
+        { label: "Radix UI", icon: <SiRadixui /> },
+        { label: "Chakra UI", icon: <SiChakraui /> },
+        { label: "TanStack Query", icon: <SiTanstack /> },
+      ],
+    },
+    {
+      title: backend,
+      skills: [
+        { label: "Node.js", icon: <FaNodeJs /> },
+        { label: "Prisma", icon: <SiPrisma /> },
+        { label: "MySQL", icon: <GrMysql /> },
+        { label: "Firebase", icon: <IoLogoFirebase /> },
+        { label: "REST APIs", icon: <TbApi /> },
+        { label: "Auth.js", icon: <SiAuth0 /> },
+        { label: "Zod", icon: <SiZod /> },
+        { label: "React Hook Form", icon: <SiReacthookform /> },
+      ],
+    },
+    {
+      title: tools,
+      skills: [
+        { label: "Docker", icon: <FaDocker /> },
+        { label: "Git", icon: <FaGitAlt /> },
+        { label: "GitHub", icon: <FaGithub /> },
+        { label: "Postman", icon: <SiPostman /> },
+        { label: "Axios", icon: <SiAxios /> },
+        { label: "Vercel", icon: <SiVercel /> },
+      ],
+    },
+  ];
+
   return (
-    <section id="skills">
+    <section id="skills" className="mb-20">
+      <Heading align="center" size={{ initial: "8", sm: "9" }} mb="7">
+        {title}
+      </Heading>
       {skillCategories.map((category) => (
         <Box key={category.title} mb="6">
           <Heading mb="3" size="6">
@@ -41,7 +99,20 @@ const Skills = () => {
 
           <Flex wrap="wrap" gap="3">
             {category.skills.map((skill, index) => (
-              <SkillCard key={skill.label} skill={skill} index={index} />
+              <FadeInOnView key={skill.label} index={index} delay={250}>
+                <Card
+                  style={{
+                    border: "1px solid var(--accent-7)",
+                  }}
+                >
+                  <Flex gap="3" align="center">
+                    <div style={{ color: "var(--accent-9)" }}>{skill.icon}</div>
+                    <Text as="div" size="3" weight="medium">
+                      {skill.label}
+                    </Text>
+                  </Flex>
+                </Card>
+              </FadeInOnView>
             ))}
           </Flex>
         </Box>
@@ -51,85 +122,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-const SkillCard = ({
-  skill,
-  index,
-}: {
-  skill: { label: string; icon: React.ReactNode };
-  index: number;
-}) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 1,
-  });
-
-  const delay = index * 100; // delay entre cada card
-
-  return (
-    <Card
-      ref={ref}
-      style={{
-        border: "1px solid var(--accent-7)",
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateX(0)" : "translateX(-20px)",
-        transition: `all 0.5s ease-out ${delay}ms`,
-      }}
-    >
-      <Flex gap="3" align="center">
-        <div style={{ color: "var(--accent-9)" }}>{skill.icon}</div>
-        <Text as="div" size="3" weight="medium">
-          {skill.label}
-        </Text>
-      </Flex>
-    </Card>
-  );
-};
-
-const skillCategories = [
-  {
-    title: "Languages",
-    skills: [
-      { label: "JavaScript", icon: <BsJavascript /> },
-      { label: "TypeScript", icon: <TbBrandTypescript /> },
-      { label: "HTML5", icon: <TiHtml5 /> },
-      { label: "CSS3", icon: <FaCss3Alt /> },
-      { label: "Python", icon: <FaPython /> },
-    ],
-  },
-  {
-    title: "Frontend",
-    skills: [
-      { label: "React", icon: <FaReact /> },
-      { label: "Next.js", icon: <RiNextjsLine /> },
-      { label: "Tailwind CSS", icon: <RiTailwindCssFill /> },
-      { label: "Radix UI", icon: <SiRadixui /> },
-      { label: "Chakra UI", icon: <SiChakraui /> },
-      { label: "TanStack Query", icon: <SiTanstack /> },
-    ],
-  },
-  {
-    title: "Backend & Database",
-    skills: [
-      { label: "Node.js", icon: <FaNodeJs /> },
-      { label: "Prisma", icon: <SiPrisma /> },
-      { label: "MySQL", icon: <GrMysql /> },
-      { label: "Firebase", icon: <IoLogoFirebase /> },
-      { label: "REST APIs", icon: <TbApi /> },
-      { label: "Auth.js", icon: <SiAuth0 /> },
-      { label: "Zod", icon: <SiZod /> },
-      { label: "React Hook Form", icon: <SiReacthookform /> },
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
-      { label: "Docker", icon: <FaDocker /> },
-      { label: "Git", icon: <FaGitAlt /> },
-      { label: "GitHub", icon: <FaGithub /> },
-      { label: "Postman", icon: <SiPostman /> },
-      { label: "Axios", icon: <SiAxios /> },
-      { label: "Vercel", icon: <SiVercel /> },
-    ],
-  },
-];
