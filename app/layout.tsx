@@ -8,6 +8,7 @@ import HoverBar from "./HoverBar";
 import { Providers } from "./ThemeProvider";
 import Footer from "./Footer";
 import { LanguageProvider } from "./context/LanguageContext";
+import { Background } from "./components/Background";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -30,6 +31,8 @@ export default function RootLayout({
         <Providers>
           <LanguageProvider>
             <Theme accentColor="tomato">
+              <Background />
+
               <NavBar />
               <HoverBar />
               <main className="p-5 pl-5 pr-5 md:pl-20 md:pr-20">
@@ -45,7 +48,7 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
-  title: "Gabriel Alejandro López | Frontend Developer",
+  title: "Gabriel López | Frontend Developer",
   description:
     "Frontend Developer specializing in React, Next.js and TypeScript. Explore my portfolio featuring web applications, freelance projects and modern frontend development.",
   keywords: [

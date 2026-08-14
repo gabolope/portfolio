@@ -45,7 +45,7 @@ const Presentation = () => {
         </FadeInOnView>
       </Box>
       <Box
-        className="w-full md:w-[30vw] md:ml-auto"
+        className="w-[75vw] md:w-[40vw] lg:w-[30vw] mx-auto md:ml-auto"
         style={{
           position: "relative",
           aspectRatio: "1 / 1",

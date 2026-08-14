@@ -90,7 +90,7 @@ export const translations = {
       d4: "Página de destino multipágina para una empresa de muebles, con navegación por secciones y narrativa visual.",
     },
     contact: {
-      title: "¿Querés...",
+      title: "¿Te gustaría...",
       t1: "Ofrecer una oportunidad laboral?",
       d1: "Estoy buscando activamente una posición como Desarrollador Frontend o proyectos freelance emocionantes. Con experiencia práctica construyendo aplicaciones reales y una formación científica sólida, estoy listo para contribuir significativamente a tu equipo.",
       t2: "Conectar?",
