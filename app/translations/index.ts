@@ -31,7 +31,6 @@ export const translations = {
     projects: {
       title: "Projects",
       d1: "A comprehensive issue tracking system featuring user authentication, advanced filtering, pagination, task assignment, and an analytics dashboard with charts, demonstrating full-stack capabilities.",
-      d2: "A fully functional replica of the RAWG video game database, showcasing API integration and efficient data fetching with React Query.",
       d3: "Responsive landing page for a biotech startup, emphasizing clean design and effective messaging.",
       d4: "Multi-page landing page for a furniture company, featuring section-based navigation and visual storytelling.",
     },
@@ -84,7 +83,7 @@ export const translations = {
     },
     projects: {
       title: "Proyectos",
-      d1: "Aplicación colaborativa para directores de bandas que permite sincronización en tiempo real de canciones en los dispositivos de los músicos. Soporta importación de archivos .chordpro y almacenamiento en Firestore.",
+      d1: "Aplicación completa de seguimiento de problemas que incluye autentificación de usuario, filtrado, paginación, agregado de problemas, y un dashboard con gráficos, demostrando habilidades full-stack.",
       d2: "Réplica totalmente funcional de la base de datos de videojuegos RAWG, mostrando integración de API y obtención eficiente de datos con React Query.",
       d3: "Página de destino responsiva para una startup de biotecnología, enfatizando diseño limpio y mensajería efectiva.",
       d4: "Página de destino multipágina para una empresa de muebles, con navegación por secciones y narrativa visual.",

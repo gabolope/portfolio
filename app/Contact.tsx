@@ -64,11 +64,18 @@ const Contact = () => {
           <FadeInOnView key={card.title} index={index} delay={500}>
             <Card
               variant="surface"
-              style={{ height: "100%", border: "1px solid var(--accent-7)" }}
+              style={{
+                height: "100%",
+                border: "1px solid var(--accent-7)",
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
-              <Heading align="center" size={{ initial: "7", sm: "8" }} mb="2">
-                {card.title}
-              </Heading>
+              <div className="min-h-[60px] sm:min-h-[120px] lg:min-h-[80px]">
+                <Heading align="center" size={{ initial: "6", sm: "7" }} mb="2">
+                  {card.title}
+                </Heading>
+              </div>
               <Text align="center">{card.text}</Text>
             </Card>
           </FadeInOnView>
