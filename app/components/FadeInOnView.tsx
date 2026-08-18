@@ -10,6 +10,7 @@ interface FadeInOnViewProps {
   direction?: "left" | "right" | "up" | "down";
   alternating?: boolean;
   secondaryDirection?: "left" | "right" | "up" | "down";
+  threshold?: number;
 }
 
 const FadeInOnView = ({
@@ -19,10 +20,11 @@ const FadeInOnView = ({
   direction = "left",
   alternating = false,
   secondaryDirection = "right",
+  threshold = 0.1,
 }: FadeInOnViewProps) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: threshold,
   });
 
   const getTransform = (dir: "left" | "right" | "up" | "down") => {

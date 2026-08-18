@@ -11,7 +11,7 @@ import { translations } from "./translations";
 
 const Projects = () => {
   const { language } = useLanguage();
-  const { title, d1, d2, d3, d4 } = translations[language].projects;
+  const { title, d1, d3, d4 } = translations[language].projects;
   const { visit, code } = translations[language].buttons;
 
   const projects = [
