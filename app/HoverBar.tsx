@@ -32,7 +32,7 @@ const HoverBar = () => {
       align="center"
       justify="center"
       className="fixed left-6 top-0 h-screen z-50"
-      display={{ initial: "none", sm: "flex" }}
+      display={{ initial: "none", md: "flex" }}
       role="navigation"
       aria-label="Social links"
     >

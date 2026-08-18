@@ -24,14 +24,6 @@ const Projects = () => {
       github: "https://github.com/gabolope/issue-tracker",
     },
     {
-      title: "Gamepedia",
-      description: d2,
-      madeWith: ["React", "React Query"],
-      image: "/projects/issueTracker.png",
-      link: "https://gamepedia-ten.vercel.app/",
-      github: "https://github.com/gabolope/gamepedia",
-    },
-    {
       title: "ThermoReleaf",
       description: d3,
       madeWith: ["HTML", "CSS", "Bootstrap"],

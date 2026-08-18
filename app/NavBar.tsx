@@ -63,50 +63,51 @@ const NavLinks = () => {
               <Link
                 href={link.href}
                 target={link.openInNewTab ? "_blank" : ""}
-                className="glow md:text-sm lg:text-2xl font-medium"
+                className="glow md:text-sm lg:text-xl font-medium"
               >
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
+        |
         <button
           onClick={toggleTheme}
           className="glow"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <MdLightMode size={25} />
-          ) : (
             <MdDarkMode size={25} />
+          ) : (
+            <MdLightMode size={25} />
           )}
         </button>
         <button
           onClick={() => setLanguage(language === "en" ? "es" : "en")}
-          className="p-2 rounded-lg glow md:text-sm lg:text-2xl"
+          className="p-1 glow md:text-sm lg:text-2xl"
         >
-          {language === "en" ? "ES" : "EN"}
+          {language === "en" ? "EN" : "ES"}
         </button>
       </div>
 
       {/* Mobile - Theme Toggle + Hamburger ONLY */}
-      <div className="flex sm:hidden items-center gap-4">
+      <div className="flex sm:hidden items-center gap-4 ">
         <button
           onClick={toggleTheme}
           className="glow"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <MdLightMode size={25} />
-          ) : (
             <MdDarkMode size={25} />
+          ) : (
+            <MdLightMode size={25} />
           )}
         </button>
         <button
           onClick={() => setLanguage(language === "en" ? "es" : "en")}
-          className="p-2 rounded-lg glow"
+          className="m-1 glow"
         >
-          {language === "en" ? "ES" : "EN"}
+          {language === "en" ? "EN" : "ES"}
         </button>
         <button onClick={() => setOpen(!open)} aria-label="Toggle navigation">
           {open ? <Cross1Icon /> : <HamburgerMenuIcon />}

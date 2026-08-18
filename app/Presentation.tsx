@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Grid, Heading, Text } from "@radix-ui/themes";
+import { Heading, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import FadeInOnView from "./components/FadeInOnView";
 import { useLanguage } from "./context/LanguageContext";
@@ -11,13 +11,8 @@ const Presentation = () => {
   const { t1, t2, t3 } = translations[language].presentation;
 
   return (
-    <Grid
-      columns={{ initial: "1", md: "2" }}
-      align="center"
-      gap="6"
-      className="mb-20"
-    >
-      <Box>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 items-center">
+      <div className="lg:col-span-2">
         <FadeInOnView index={0} direction="up" delay={100}>
           <Heading mb="4" size="7" weight="light">
             {t1}
@@ -43,9 +38,9 @@ const Presentation = () => {
             {t3}
           </Text>
         </FadeInOnView>
-      </Box>
-      <Box
-        className="w-[75vw] md:w-[40vw] lg:w-[30vw] mx-auto md:ml-auto"
+      </div>
+      <div
+        className="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto md:ml-auto lg:col-span-1"
         style={{
           position: "relative",
           aspectRatio: "1 / 1",
@@ -60,8 +55,8 @@ const Presentation = () => {
           alt="Gabriel López picture"
           style={{ objectFit: "cover" }}
         />
-      </Box>
-    </Grid>
+      </div>
+    </div>
   );
 };
 

@@ -99,7 +99,7 @@ const Skills = () => {
 
           <Flex wrap="wrap" gap="3">
             {category.skills.map((skill, index) => (
-              <FadeInOnView key={skill.label} index={index} delay={250}>
+              <FadeInOnView key={skill.label} index={index} delay={100}>
                 <Card
                   style={{
                     border: "1px solid var(--accent-7)",

@@ -3,10 +3,9 @@
 import { useInView } from "react-intersection-observer";
 import { ReactNode } from "react";
 
-interface Props {
+interface FadeInOnViewProps {
   children: ReactNode;
   index?: number;
-  threshold?: number;
   delay?: number;
   direction?: "left" | "right" | "up" | "down";
   alternating?: boolean;
@@ -17,14 +16,13 @@ const FadeInOnView = ({
   children,
   index = 0,
   delay = 50,
-  threshold = 0.25,
   direction = "left",
   alternating = false,
   secondaryDirection = "right",
-}: Props) => {
+}: FadeInOnViewProps) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: threshold,
+    threshold: 0.1,
   });
 
   const getTransform = (dir: "left" | "right" | "up" | "down") => {
@@ -38,7 +36,6 @@ const FadeInOnView = ({
     return transforms[dir];
   };
 
-  // Si alternating es true, alterna entre direction y secondaryDirection
   const currentDirection = alternating
     ? index % 2 === 0
       ? direction
@@ -53,7 +50,8 @@ const FadeInOnView = ({
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translate(0)" : getTransform(currentDirection),
-        transition: `all 0.5s ease-out ${animationDelay}ms`,
+        transition: `opacity 0.5s ease-out ${animationDelay}ms, transform 0.5s ease-out ${animationDelay}ms`,
+        willChange: "transform, opacity",
       }}
     >
       {children}
