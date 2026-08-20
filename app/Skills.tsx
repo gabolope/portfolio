@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
-import { useInView } from "react-intersection-observer";
 import { BsJavascript } from "react-icons/bs";
 import {
   FaCss3Alt,
@@ -19,6 +18,7 @@ import {
   SiAuth0,
   SiAxios,
   SiChakraui,
+  SiClaudecode,
   SiPostman,
   SiPrisma,
   SiRadixui,
@@ -76,6 +76,7 @@ const Skills = () => {
     {
       title: tools,
       skills: [
+        { label: "Claude Code", icon: <SiClaudecode /> },
         { label: "Docker", icon: <FaDocker /> },
         { label: "Git", icon: <FaGitAlt /> },
         { label: "GitHub", icon: <FaGithub /> },
