@@ -1,0 +1,32 @@
+.mockup {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: visible;
+}
+
+.desktopFrame {
+  position: absolute;
+  inset: 0 14% 14% 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mobileOverlay {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 24%;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 3px solid var(--color-background);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 767px) {
+  .mobileOverlay {
+    width: 22%;
+    bottom: -6px;
+    right: -6px;
+  }
+}

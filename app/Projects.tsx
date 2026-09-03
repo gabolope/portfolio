@@ -1,20 +1,58 @@
 "use client";
 
 import { Box, Flex, Grid, Heading, Text } from "@radix-ui/themes";
-import Image from "next/image";
 import { FaGithub } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
 import LinkButton from "./components/LinkButton";
 import FadeInOnView from "./components/FadeInOnView";
+import ProjectImageShowcase from "./components/ProjectImageShowcase";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./translations";
 
+interface Project {
+  title: string;
+  description: string;
+  madeWith: string[];
+  image: string;
+  link: string;
+  github?: string;
+  screens?: { mobile: string; desktop: string }[];
+}
+
 const Projects = () => {
   const { language } = useLanguage();
-  const { title, d1, d3, d4 } = translations[language].projects;
+  const { title, d1, d3, d4, d5 } = translations[language].projects;
   const { visit, code } = translations[language].buttons;
 
-  const projects = [
+  const projects: Project[] = [
+    {
+      title: "Herald",
+      description: d5,
+      madeWith: [
+        "Bun",
+        "Express",
+        "React",
+        "Prisma",
+        "PostgreSQL",
+        "TanStack Query",
+      ],
+      image: "/projects/herald/desktop1.png",
+      link: "https://helpdesk-production-4866.up.railway.app/",
+      screens: [
+        {
+          mobile: "/projects/herald/mobile2.png",
+          desktop: "/projects/herald/desktop1.png",
+        },
+        {
+          mobile: "/projects/herald/mobile3.png",
+          desktop: "/projects/herald/desktop2.png",
+        },
+        {
+          mobile: "/projects/herald/mobile1.png",
+          desktop: "/projects/herald/desktop3.png",
+        },
+      ],
+    },
     {
       title: "Issue Tracker",
       description: d1,
@@ -27,15 +65,43 @@ const Projects = () => {
       title: "ThermoReleaf",
       description: d3,
       madeWith: ["HTML", "CSS", "Bootstrap"],
-      image: "/projects/thermoreleaf.png",
+      image: "/projects/thermoreleaf/desktop1.png",
       link: "https://thermoreleaf.com.ar/",
+      screens: [
+        {
+          mobile: "/projects/thermoreleaf/mobile1.png",
+          desktop: "/projects/thermoreleaf/desktop1.png",
+        },
+        {
+          mobile: "/projects/thermoreleaf/mobile2.png",
+          desktop: "/projects/thermoreleaf/desktop2.png",
+        },
+        {
+          mobile: "/projects/thermoreleaf/mobile3.png",
+          desktop: "/projects/thermoreleaf/desktop3.png",
+        },
+      ],
     },
     {
       title: "Kreart",
       description: d4,
       madeWith: ["HTML", "CSS", "Bootstrap"],
-      image: "/projects/kreart.png",
+      image: "/projects/kreart/desktop1.png",
       link: "https://kreart-dpm.com/",
+      screens: [
+        {
+          mobile: "/projects/kreart/mobile1.png",
+          desktop: "/projects/kreart/desktop1.png",
+        },
+        {
+          mobile: "/projects/kreart/mobile2.png",
+          desktop: "/projects/kreart/desktop2.png",
+        },
+        {
+          mobile: "/projects/kreart/mobile3.png",
+          desktop: "/projects/kreart/desktop3.png",
+        },
+      ],
     },
   ];
 
@@ -53,24 +119,16 @@ const Projects = () => {
           alternating
         >
           <Grid
-            gap="4"
-            mb="6"
+            gap="6"
+            mb="9"
             columns={{ initial: "1", md: "2" }}
             align="start"
           >
-            <Box
-              style={{
-                position: "relative",
-                aspectRatio: "5 / 3",
-              }}
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                style={{ objectFit: "cover", borderRadius: "8px" }}
-              />
-            </Box>
+            <ProjectImageShowcase
+              title={project.title}
+              image={project.image}
+              screens={project.screens}
+            />
             <Box>
               <Heading mb="4" size="8">
                 {project.title}
