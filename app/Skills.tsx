@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
+import { Box, Flex, Text } from "@radix-ui/themes";
 import { BsJavascript } from "react-icons/bs";
 import {
   FaCss3Alt,
@@ -31,12 +31,13 @@ import {
 import { TbApi, TbBrandTypescript } from "react-icons/tb";
 import { TiHtml5 } from "react-icons/ti";
 import FadeInOnView from "./components/FadeInOnView";
+import SectionHeading from "./components/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./translations";
 
 const Skills = () => {
   const { language } = useLanguage();
-  const { title, languages, frontend, backend, tools } =
+  const { eyebrowIndex, eyebrowLabel, title, languages, frontend, backend, tools } =
     translations[language].skills;
 
   const skillCategories = [
@@ -90,31 +91,43 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="mb-20">
-      <Heading align="center" size={{ initial: "8", sm: "9" }} mb="7">
-        {title}
-      </Heading>
+    <section id="skills" className="mb-24">
+      <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
       {skillCategories.map((category) => (
-        <Box key={category.title} mb="6">
-          <Heading mb="3" size="6">
+        <Box key={category.title} mb="7">
+          <Text
+            as="div"
+            mb="3"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.75rem",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+            }}
+          >
             {category.title}
-          </Heading>
+          </Text>
 
           <Flex wrap="wrap" gap="3">
             {category.skills.map((skill, index) => (
-              <FadeInOnView key={skill.label} index={index} delay={100}>
-                <Card
+              <FadeInOnView key={skill.label} index={index} delay={70}>
+                <div
                   style={{
-                    border: "1px solid var(--accent-7)",
+                    border: "1px solid var(--line)",
+                    padding: "9px 14px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
                   }}
                 >
-                  <Flex gap="3" align="center">
-                    <div style={{ color: "var(--accent-9)" }}>{skill.icon}</div>
-                    <Text as="div" size="3" weight="medium">
-                      {skill.label}
-                    </Text>
-                  </Flex>
-                </Card>
+                  <div style={{ color: "var(--signal)", display: "flex" }}>
+                    {skill.icon}
+                  </div>
+                  <Text as="div" size="3" weight="medium">
+                    {skill.label}
+                  </Text>
+                </div>
               </FadeInOnView>
             ))}
           </Flex>

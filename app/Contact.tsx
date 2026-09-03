@@ -1,30 +1,23 @@
 "use client";
-import { Card, Flex, Grid, Heading, Text } from "@radix-ui/themes";
+import { Flex, Grid, Heading, Text } from "@radix-ui/themes";
 import { FaGithub, FaLinkedin, FaRegFilePdf } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import FadeInOnView from "./components/FadeInOnView";
+import SectionHeading from "./components/SectionHeading";
 import SocialButton from "./components/SocialButton";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./translations";
 
 const Contact = () => {
   const { language } = useLanguage();
-  const { title, t1, t2, t3, d1, d2, d3 } = translations[language].contact;
+  const { eyebrowIndex, eyebrowLabel, title, t1, t2, t3, d1, d2, d3 } =
+    translations[language].contact;
   const { resume } = translations[language].buttons;
 
   const cards = [
-    {
-      title: t1,
-      text: d1,
-    },
-    {
-      title: t2,
-      text: d2,
-    },
-    {
-      title: t3,
-      text: d3,
-    },
+    { title: t1, text: d1 },
+    { title: t2, text: d2 },
+    { title: t3, text: d3 },
   ];
 
   const socialLinks = [
@@ -56,28 +49,29 @@ const Contact = () => {
 
   return (
     <section id="contact">
-      <Heading align="center" mb="7" size={{ initial: "8", sm: "9" }}>
-        {title}
-      </Heading>
-      <Grid gap="5" columns={{ initial: "1", sm: "2", md: "3" }} mb="7">
+      <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
+      <Grid gap="5" columns={{ initial: "1", sm: "2", md: "3" }} mb="8">
         {cards.map((card, index) => (
-          <FadeInOnView key={card.title} index={index} delay={500}>
-            <Card
-              variant="surface"
+          <FadeInOnView key={card.title} index={index} delay={150}>
+            <div
               style={{
                 height: "100%",
-                border: "1px solid var(--accent-7)",
+                border: "1px solid var(--line)",
+                background: "var(--surface)",
+                padding: "24px",
                 display: "flex",
                 flexDirection: "column",
               }}
             >
-              <div className="min-h-[60px] sm:min-h-[120px] lg:min-h-[80px]">
-                <Heading align="center" size={{ initial: "6", sm: "7" }} mb="2">
+              <div className="min-h-[60px] sm:min-h-[100px] lg:min-h-[70px]">
+                <Heading size={{ initial: "6", sm: "7" }} mb="2">
                   {card.title}
                 </Heading>
               </div>
-              <Text align="center">{card.text}</Text>
-            </Card>
+              <Text style={{ color: "var(--muted)", lineHeight: 1.6 }}>
+                {card.text}
+              </Text>
+            </div>
           </FadeInOnView>
         ))}
       </Grid>
@@ -90,7 +84,7 @@ const Contact = () => {
         >
           {socialLinks.map(({ id, href, label, icon }, index) => (
             <FadeInOnView key={id} index={index} delay={100}>
-              <SocialButton href={href} color="var(--accent-9)" openInNewTab>
+              <SocialButton href={href} openInNewTab>
                 {icon}
                 {label}
               </SocialButton>

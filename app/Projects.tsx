@@ -6,6 +6,7 @@ import { TbWorld } from "react-icons/tb";
 import LinkButton from "./components/LinkButton";
 import FadeInOnView from "./components/FadeInOnView";
 import ProjectImageShowcase from "./components/ProjectImageShowcase";
+import SectionHeading from "./components/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./translations";
 
@@ -21,7 +22,8 @@ interface Project {
 
 const Projects = () => {
   const { language } = useLanguage();
-  const { title, d1, d3, d4, d5 } = translations[language].projects;
+  const { eyebrowIndex, eyebrowLabel, title, d1, d3, d4, d5 } =
+    translations[language].projects;
   const { visit, code } = translations[language].buttons;
 
   const projects: Project[] = [
@@ -106,10 +108,8 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="mb-20">
-      <Heading align="center" mb="7" size="9">
-        {title}
-      </Heading>
+    <section id="projects" className="mb-24">
+      <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
       {projects.map((project, index) => (
         <FadeInOnView
           key={project.title}
@@ -120,9 +120,9 @@ const Projects = () => {
         >
           <Grid
             gap="6"
-            mb="9"
             columns={{ initial: "1", md: "2" }}
             align="start"
+            style={{ marginBottom: "7.5rem" }}
           >
             <ProjectImageShowcase
               title={project.title}
@@ -130,21 +130,30 @@ const Projects = () => {
               screens={project.screens}
             />
             <Box>
-              <Heading mb="4" size="8">
+              <Heading mb="3" size="8" style={{ fontWeight: 600 }}>
                 {project.title}
               </Heading>
-              <Text as="p" size="5" mb="4">
+              <Text
+                as="p"
+                size="3"
+                mb="4"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  color: "var(--muted)",
+                }}
+              >
                 {project.madeWith.join(" · ")}
               </Text>
-              <Text as="p" size="5" mb="4">
+              <Text
+                as="p"
+                size="5"
+                mb="5"
+                style={{ color: "var(--muted)", lineHeight: 1.65 }}
+              >
                 {project.description}
               </Text>
               <Flex gap="3">
-                <LinkButton
-                  href={project.link}
-                  openInNewTab
-                  color="var(--accent-9)"
-                >
+                <LinkButton href={project.link} openInNewTab variant="solid">
                   <TbWorld />
                   {visit}
                 </LinkButton>
@@ -152,7 +161,7 @@ const Projects = () => {
                   <LinkButton
                     href={project.github}
                     openInNewTab
-                    color="var(--accent-9)"
+                    variant="outline"
                   >
                     <FaGithub />
                     {code}

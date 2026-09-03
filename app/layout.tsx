@@ -3,17 +3,29 @@ import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import NavBar from "./NavBar";
-import { Quicksand } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import HoverBar from "./HoverBar";
 import { Providers } from "./ThemeProvider";
 import Footer from "./Footer";
 import { LanguageProvider } from "./context/LanguageContext";
 import { Background } from "./components/Background";
 
-const quicksand = Quicksand({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-quicksand",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
+
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
 });
 
 export default function RootLayout({
@@ -24,13 +36,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${quicksand.variable}  h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <Providers>
           <LanguageProvider>
-            <Theme accentColor="tomato">
+            <Theme accentColor="green">
               <Background />
 
               <NavBar />

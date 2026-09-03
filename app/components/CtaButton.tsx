@@ -1,23 +1,29 @@
 import Link from "next/link";
-import styles from "./SocialButton.module.css";
+import styles from "./CtaButton.module.css";
 
 interface Props {
   children: React.ReactNode;
   href: string;
+  variant?: "solid" | "accent" | "outline";
   openInNewTab?: boolean;
 }
 
-const SocialButton = ({ children, href, openInNewTab = false }: Props) => {
+const CtaButton = ({
+  children,
+  href,
+  variant = "outline",
+  openInNewTab = false,
+}: Props) => {
   return (
     <Link
       href={href}
-      className={styles.slider}
+      className={`${styles.slider} ${styles[variant]}`}
       target={openInNewTab ? "_blank" : undefined}
       rel={openInNewTab ? "noopener noreferrer" : undefined}
     >
-      <span className={styles.content}>{children}</span>
+      {children}
     </Link>
   );
 };
 
-export default SocialButton;
+export default CtaButton;

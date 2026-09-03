@@ -2,25 +2,28 @@
   min-width: 110px;
   min-height: 90px;
   padding: 15px 10px;
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   outline: none;
-  border-radius: 5px;
+  border-radius: 3px;
   z-index: 0;
   overflow: hidden;
-  background: var(--color-background);
-  border: 2px solid var(--btn-color, #212529);
-  color: var(--btn-color, #212529);
+  background: var(--surface);
+  border: 1.3px solid var(--line);
+  color: var(--fg);
   text-decoration: none;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .slider:hover {
-  color: var(--color-background);
+  color: var(--accent-fg);
+  border-color: var(--signal);
 }
 
 .slider::after {
@@ -31,7 +34,7 @@
   bottom: 0;
   width: 100%;
   height: 0;
-  background: var(--btn-color, #212529);
+  background: var(--signal);
 }
 
 .slider:hover::after {
@@ -46,14 +49,18 @@
   gap: 8px;
   position: relative;
   z-index: 1;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .content :global(svg) {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   transition: transform 0.3s ease;
 }
 
 .slider:hover .content :global(svg) {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }

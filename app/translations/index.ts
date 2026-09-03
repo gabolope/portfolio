@@ -8,11 +8,16 @@ export const translations = {
       resume: "Resume",
     },
     presentation: {
+      status: "Open to work",
       t1: "Hello! I'm",
       t2: "Frontend Developer based in Argentina.",
       t3: "I'm a Frontend Developer passionate about building user-centered web applications. With a background in scientific research and specialization in React, TypeScript, and modern frontend architecture, I excel at turning complex requirements into clear, functional experiences. My years in research formed my analytical mindset and problem-solving skills, which translate directly into robust, maintainable code.",
+      ctaProjects: "See projects",
+      ctaCv: "Download CV",
     },
     about: {
+      eyebrowIndex: "01",
+      eyebrowLabel: "Background",
       title: "About my...",
       t1: "Past",
       d1: "Scientist with a PhD in Biological Sciences. During my doctoral research, I leveraged Python for data analysis and visualization. Driven by curiosity, I taught myself web development and quickly fell in love with it: JavaScript, HTML, CSS, and eventually React, TypeScript, and Next.js became my focus.",
@@ -22,6 +27,8 @@ export const translations = {
       d3: "I'm committed to deepening my expertise in frontend development, working within collaborative teams that challenge and inspire growth, and building products that make a real impact. I'm proactive, adaptable, and excited about the opportunities ahead.",
     },
     skills: {
+      eyebrowIndex: "02",
+      eyebrowLabel: "Capabilities",
       title: "Skills",
       languages: "Languages",
       frontend: "Frontend",
@@ -29,6 +36,8 @@ export const translations = {
       tools: "Tools",
     },
     projects: {
+      eyebrowIndex: "03",
+      eyebrowLabel: "Selected Work",
       title: "Projects",
       d1: "A comprehensive issue tracking system featuring user authentication, advanced filtering, pagination, task assignment, and an analytics dashboard with charts, demonstrating full-stack capabilities.",
       d3: "Responsive landing page for a biotech startup, emphasizing clean design and effective messaging.",
@@ -36,6 +45,8 @@ export const translations = {
       d5: "AI-assisted support helpdesk with two-way email ticketing, role-based authentication, and automated triage: inbound emails are classified and resolved by LLM agents against a knowledge base, with a workspace for replies, ticket assignment, and AI-polished drafts. Questions about how it works? Email support@inbox.gabriellopez.com.ar and an AI agent will answer.",
     },
     contact: {
+      eyebrowIndex: "04",
+      eyebrowLabel: "Get in Touch",
       title: "Want to...",
       t1: "Offer a job opportunity?",
       d1: "I'm actively seeking a Frontend Developer position or exciting freelance projects. With hands-on experience building real-world applications and a scientific background, I'm ready to contribute meaningfully to your team.",
@@ -62,11 +73,16 @@ export const translations = {
       resume: "CV",
     },
     presentation: {
+      status: "Disponible para trabajar",
       t1: "Hola! Soy",
       t2: "Desarrollador Frontend basado en Argentina.",
       t3: "Soy Desarrollador Frontend apasionado por construir aplicaciones web centradas en el usuario. Con formación en investigación científica y especialización en React, TypeScript y arquitectura frontend moderna, destaco en transformar requisitos complejos en experiencias claras y funcionales. Mis años en investigación formaron mi pensamiento analítico y capacidad de resolución de problemas, que se traducen directamente en código robusto y mantenible.",
+      ctaProjects: "Ver proyectos",
+      ctaCv: "Descargar CV",
     },
     about: {
+      eyebrowIndex: "01",
+      eyebrowLabel: "Trasfondo",
       title: "Sobre mi...",
       t1: "Pasado",
       d1: "Científico con Doctorado en Ciencias Biológicas. Durante mi investigación doctoral, utilicé Python para análisis de datos y visualización. Impulsado por la curiosidad, me enseñé a mí mismo desarrollo web y rápidamente me enamoré de él: JavaScript, HTML, CSS, y eventualmente React, TypeScript y Next.js se convirtieron en mi enfoque.",
@@ -76,6 +92,8 @@ export const translations = {
       d3: "Estoy comprometido a profundizar mi experiencia en desarrollo frontend, trabajar dentro de equipos colaborativos que desafíen e inspiren crecimiento, y construir productos que generen un impacto real. Soy proactivo, adaptable y entusiasmado con las oportunidades que se avecinan.",
     },
     skills: {
+      eyebrowIndex: "02",
+      eyebrowLabel: "Capacidades",
       title: "Habilidades",
       languages: "Lenguajes",
       frontend: "Frontend",
@@ -83,6 +101,8 @@ export const translations = {
       tools: "Herramientas",
     },
     projects: {
+      eyebrowIndex: "03",
+      eyebrowLabel: "Trabajos seleccionados",
       title: "Proyectos",
       d1: "Aplicación completa de seguimiento de problemas que incluye autentificación de usuario, filtrado, paginación, agregado de problemas, y un dashboard con gráficos, demostrando habilidades full-stack.",
       d2: "Réplica totalmente funcional de la base de datos de videojuegos RAWG, mostrando integración de API y obtención eficiente de datos con React Query.",
@@ -91,6 +111,8 @@ export const translations = {
       d5: "Mesa de ayuda de soporte asistida por IA con tickets por correo bidireccional, autenticación por roles y triaje automatizado: los correos entrantes se clasifican y resuelven mediante agentes con LLM contra una base de conocimiento, con un espacio de trabajo para respuestas, asignación de tickets y redacción pulida por IA. ¿Preguntas sobre cómo funciona? Escribí a support@inbox.gabriellopez.com.ar y un agente de IA responderá.",
     },
     contact: {
+      eyebrowIndex: "04",
+      eyebrowLabel: "Contacto",
       title: "¿Te gustaría...",
       t1: "Ofrecer una oportunidad laboral?",
       d1: "Estoy buscando activamente una posición como Desarrollador Frontend o proyectos freelance emocionantes. Con experiencia práctica construyendo aplicaciones reales y una formación científica sólida, estoy listo para contribuir significativamente a tu equipo.",

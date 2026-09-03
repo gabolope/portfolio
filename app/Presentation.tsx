@@ -1,60 +1,100 @@
 "use client";
 
 import { Heading, Text } from "@radix-ui/themes";
+import { FaRegFilePdf } from "react-icons/fa6";
+import { TbArrowDown } from "react-icons/tb";
 import Image from "next/image";
+import CtaButton from "./components/CtaButton";
 import FadeInOnView from "./components/FadeInOnView";
 import { useLanguage } from "./context/LanguageContext";
 import { translations } from "./translations";
 
 const Presentation = () => {
   const { language } = useLanguage();
-  const { t1, t2, t3 } = translations[language].presentation;
+  const { status, t1, t2, t3, ctaProjects, ctaCv } =
+    translations[language].presentation;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 items-center">
-      <div className="lg:col-span-2">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 mb-20 items-center">
+      <div className="lg:col-span-3">
         <FadeInOnView index={0} direction="up" delay={100}>
-          <Heading mb="4" size="7" weight="light">
-            {t1}
-          </Heading>
+          <div className="eyebrow mb-5">{status}</div>
         </FadeInOnView>
         <FadeInOnView index={1} direction="up" delay={100}>
           <Heading
-            mb="4"
-            size="8"
-            style={{ color: "var(--accent-9)" }}
+            mb="1"
+            size={{ initial: "6", sm: "7" }}
             weight="medium"
+            style={{ color: "var(--muted)" }}
+          >
+            {t1}
+          </Heading>
+        </FadeInOnView>
+        <FadeInOnView index={2} direction="up" delay={100}>
+          <Heading
+            mb="3"
+            size={{ initial: "8", sm: "9" }}
+            style={{
+              color: "var(--signal)",
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
+            }}
           >
             Gabriel López
           </Heading>
         </FadeInOnView>
-        <FadeInOnView index={2} direction="up" delay={100}>
-          <Heading mb="4" size="7" weight="light">
+        <FadeInOnView index={3} direction="up" delay={100}>
+          <Heading
+            mb="4"
+            size={{ initial: "6", sm: "7" }}
+            weight="medium"
+            style={{ letterSpacing: "-0.01em" }}
+          >
             {t2}
           </Heading>
         </FadeInOnView>
-        <FadeInOnView index={3} direction="up" delay={150}>
-          <Text as="p" size="5" weight="light">
+        <FadeInOnView index={4} direction="up" delay={150}>
+          <Text
+            as="p"
+            size="4"
+            mb="6"
+            style={{ color: "var(--muted)", maxWidth: "58ch", lineHeight: 1.7 }}
+          >
             {t3}
           </Text>
         </FadeInOnView>
+        <FadeInOnView index={5} direction="up" delay={150}>
+          <div className="flex flex-wrap gap-3">
+            <CtaButton href="#projects" variant="solid">
+              <TbArrowDown />
+              {ctaProjects}
+            </CtaButton>
+            <CtaButton href="/resume.pdf" variant="accent" openInNewTab>
+              <FaRegFilePdf />
+              {ctaCv}
+            </CtaButton>
+          </div>
+        </FadeInOnView>
       </div>
-      <div
-        className="w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto md:ml-auto lg:col-span-1"
-        style={{
-          position: "relative",
-          aspectRatio: "1 / 1",
-          borderRadius: "10px",
-          overflow: "hidden",
-          boxShadow: "10px 10px var(--accent-9)",
-        }}
-      >
-        <Image
-          src="/photo.png"
-          fill
-          alt="Gabriel López picture"
-          style={{ objectFit: "cover" }}
-        />
+      <div className="lg:col-span-2">
+        <FadeInOnView index={2} direction="right" delay={150}>
+          <div
+            className="marks w-full max-w-sm mx-auto lg:max-w-none"
+            style={{
+              position: "relative",
+              aspectRatio: "1 / 1.05",
+              border: "1px solid var(--line)",
+            }}
+          >
+            <Image
+              src="/photo.png"
+              fill
+              alt="Gabriel López picture"
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        </FadeInOnView>
       </div>
     </div>
   );

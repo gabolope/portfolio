@@ -52,7 +52,7 @@ const HoverBar = () => {
       </Flex>
 
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0.75 rounded-t-md bg-(--accent-9) transition-all duration-300"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0.75 rounded-t-md bg-(--signal) transition-all duration-300"
         style={{ height: `${lineHeight}px` }}
       />
     </Flex>

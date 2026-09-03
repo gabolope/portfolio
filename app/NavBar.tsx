@@ -3,6 +3,7 @@
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Container, Flex } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
@@ -11,14 +12,14 @@ import { translations } from "./translations";
 
 const NavBar = () => {
   return (
-    <nav className=" sticky top-0 z-40 py-3 p-5 pl-5 pr-5 md:pl-20 md:pr-20 mb-5 border-b-2 border-(--accent-9) sm:text-xl bg-[var(--color-background)]">
+    <nav className="sticky top-0 z-40 py-3 p-5 pl-5 pr-5 md:pl-20 md:pr-20 mb-5 border-b border-(--line) bg-[var(--background)]">
       <Container>
         <Flex justify="between" align="center">
           <Link
             href="/"
-            className="glow text-lg md:text-lg lg:text-2xl font-medium"
+            className="flex items-center gap-2 glow"
           >
-            Gabriel López
+            <Brand />
           </Link>
           <NavLinks />
         </Flex>
@@ -29,6 +30,36 @@ const NavBar = () => {
 
 export default NavBar;
 
+const Brand = () => {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <>
+      <span className="relative w-6 h-6 shrink-0">
+        {mounted && (
+          <Image
+            src={resolvedTheme === "dark" ? "/logoWhite.svg" : "/logoBlack.svg"}
+            alt=""
+            fill
+            style={{ objectFit: "contain" }}
+          />
+        )}
+      </span>
+      <span
+        className="text-lg md:text-lg lg:text-xl font-semibold"
+        style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.01em" }}
+      >
+        Gabriel López
+      </span>
+    </>
+  );
+};
+
 const NavLinks = () => {
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -38,12 +69,17 @@ const NavLinks = () => {
     translations[language].navbar;
 
   const links = [
-    { label: about, href: "#about", openInNewTab: false },
-    { label: skills, href: "#skills", openInNewTab: false },
-    { label: projects, href: "#projects", openInNewTab: false },
-    { label: contact, href: "#contact", openInNewTab: false },
-    { label: resume, href: "/resume.pdf", openInNewTab: true },
+    { label: about, href: "#about" },
+    { label: skills, href: "#skills" },
+    { label: projects, href: "#projects" },
+    { label: contact, href: "#contact" },
   ];
+
+  const navFont = {
+    fontFamily: "var(--font-mono)",
+    letterSpacing: "0.06em",
+    textTransform: "uppercase" as const,
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -56,35 +92,43 @@ const NavLinks = () => {
   return (
     <>
       {/* Desktop - Links + Theme Toggle */}
-      <div className="hidden sm:flex items-center gap-4">
-        <ul className="flex space-x-10">
+      <div className="hidden sm:flex items-center gap-5">
+        <ul className="flex space-x-8">
           {links.map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                target={link.openInNewTab ? "_blank" : ""}
-                className="glow md:text-sm lg:text-xl font-medium"
+                className="glow text-xs font-medium"
+                style={navFont}
               >
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
-        |
+        <Link
+          href="/resume.pdf"
+          target="_blank"
+          className="text-xs font-medium px-3 py-1.5 border border-(--line) rounded-[3px] transition-colors hover:border-(--signal) hover:text-(--signal)"
+          style={navFont}
+        >
+          {resume}
+        </Link>
         <button
           onClick={toggleTheme}
           className="glow"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <MdDarkMode size={25} />
+            <MdDarkMode size={20} />
           ) : (
-            <MdLightMode size={25} />
+            <MdLightMode size={20} />
           )}
         </button>
         <button
           onClick={() => setLanguage(language === "en" ? "es" : "en")}
-          className="p-1 glow md:text-sm lg:text-2xl"
+          className="p-1 glow text-xs"
+          style={navFont}
         >
           {language === "en" ? "EN" : "ES"}
         </button>
@@ -98,14 +142,15 @@ const NavLinks = () => {
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <MdDarkMode size={25} />
+            <MdDarkMode size={22} />
           ) : (
-            <MdLightMode size={25} />
+            <MdLightMode size={22} />
           )}
         </button>
         <button
           onClick={() => setLanguage(language === "en" ? "es" : "en")}
-          className="m-1 glow"
+          className="m-1 glow text-xs"
+          style={navFont}
         >
           {language === "en" ? "EN" : "ES"}
         </button>
@@ -116,12 +161,13 @@ const NavLinks = () => {
 
       {/* Mobile Menu - Only appears when open */}
       {open && (
-        <ul className="absolute left-0 top-12 w-full bg-[var(--color-background)] md:hidden">
-          {links.map((link) => (
+        <ul className="absolute left-0 top-full w-full bg-[var(--background)] border-t border-(--line) md:hidden">
+          {[...links, { label: resume, href: "/resume.pdf" }].map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="block px-6 py-4 transition-colors hover:text-[var(--accent-9)]"
+                className="block px-6 py-4 text-sm transition-colors hover:text-(--signal)"
+                style={navFont}
                 onClick={() => setOpen(false)}
               >
                 {link.label}

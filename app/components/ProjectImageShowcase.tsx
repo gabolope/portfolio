@@ -50,12 +50,18 @@ const ProjectImageShowcase = ({
 
   if (!hasScreens) {
     return (
-      <Box style={{ position: "relative", aspectRatio: "5 / 3" }}>
+      <Box
+        style={{
+          position: "relative",
+          aspectRatio: "5 / 3",
+          border: "1px solid var(--line)",
+        }}
+      >
         <Image
           src={image}
           alt={title}
           fill
-          style={{ objectFit: "cover", borderRadius: "8px" }}
+          style={{ objectFit: "cover", borderRadius: "4px" }}
         />
       </Box>
     );
