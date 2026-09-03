@@ -17,6 +17,7 @@ interface ProjectImageShowcaseProps {
 }
 
 const CYCLE_MS = 4000;
+const FADE_MS = 1000;
 
 const ProjectImageShowcase = ({
   title,
@@ -26,27 +27,26 @@ const ProjectImageShowcase = ({
   const hasScreens = !!screens && screens.length > 0;
 
   const [index, setIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  useEffect(() => {
-    const mql = window.matchMedia("(hover: none), (pointer: coarse)");
-    setIsTouchDevice(mql.matches);
-    const listener = (e: MediaQueryListEvent) => setIsTouchDevice(e.matches);
-    mql.addEventListener("change", listener);
-    return () => mql.removeEventListener("change", listener);
-  }, []);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (!hasScreens) return;
-    if (!isTouchDevice && !isHovering) return;
 
     const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % screens!.length);
+      setIndex((prev) => {
+        setPrevIndex(prev);
+        return (prev + 1) % screens!.length;
+      });
     }, CYCLE_MS);
 
     return () => clearInterval(id);
-  }, [hasScreens, isTouchDevice, isHovering, screens]);
+  }, [hasScreens, screens]);
+
+  useEffect(() => {
+    if (prevIndex === null) return;
+    const timeout = setTimeout(() => setPrevIndex(null), FADE_MS);
+    return () => clearTimeout(timeout);
+  }, [prevIndex]);
 
   if (!hasScreens) {
     return (
@@ -67,20 +67,31 @@ const ProjectImageShowcase = ({
     );
   }
 
-  const current = screens![index];
-
   return (
-    <Box
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <DeviceMockup screen={current} title={title} />
+    <Box className={styles.stage}>
+      {prevIndex !== null && (
+        <DeviceMockup screen={screens![prevIndex]} title={title} />
+      )}
+      <DeviceMockup
+        key={index}
+        screen={screens![index]}
+        title={title}
+        fadeIn={prevIndex !== null}
+      />
     </Box>
   );
 };
 
-const DeviceMockup = ({ screen, title }: { screen: Screen; title: string }) => (
-  <Box className={styles.mockup}>
+const DeviceMockup = ({
+  screen,
+  title,
+  fadeIn,
+}: {
+  screen: Screen;
+  title: string;
+  fadeIn?: boolean;
+}) => (
+  <Box className={`${styles.layer} ${fadeIn ? styles.layerEnter : ""}`}>
     <Box className={styles.desktopFrame}>
       <Image
         src={screen.desktop}
