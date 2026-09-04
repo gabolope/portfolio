@@ -15,15 +15,15 @@ const Presentation = () => {
     translations[language].presentation;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 mb-20 items-center">
-      <div className="lg:col-span-3">
+    <div className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 mb-20 items-start lg:items-center">
+      <div className="col-start-1 row-start-1 lg:col-start-1 lg:row-start-1 lg:col-span-3">
         <FadeInOnView index={0} direction="up" delay={100}>
           <div className="eyebrow mb-5">{status}</div>
         </FadeInOnView>
         <FadeInOnView index={1} direction="up" delay={100}>
           <Heading
             mb="1"
-            size={{ initial: "6", sm: "7" }}
+            size={{ initial: "4", sm: "7" }}
             weight="medium"
             style={{ color: "var(--muted)" }}
           >
@@ -33,7 +33,7 @@ const Presentation = () => {
         <FadeInOnView index={2} direction="up" delay={100}>
           <Heading
             mb="3"
-            size={{ initial: "8", sm: "9" }}
+            size={{ initial: "6", sm: "9" }}
             style={{
               color: "var(--signal)",
               fontWeight: 600,
@@ -46,13 +46,33 @@ const Presentation = () => {
         <FadeInOnView index={3} direction="up" delay={100}>
           <Heading
             mb="4"
-            size={{ initial: "6", sm: "7" }}
+            size={{ initial: "4", sm: "7" }}
             weight="medium"
             style={{ letterSpacing: "-0.01em" }}
           >
             {t2}
           </Heading>
         </FadeInOnView>
+      </div>
+      <div className="col-start-2 row-start-1 lg:col-start-4 lg:row-start-1 lg:col-span-2 lg:row-span-2">
+        <FadeInOnView index={2} direction="right" delay={150}>
+          <div
+            className="marks relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-full lg:h-auto lg:aspect-[1/1.05]"
+            style={{
+              border: "1px solid var(--line)",
+            }}
+          >
+            <Image
+              src="/photo.png"
+              fill
+              alt="Gabriel López picture"
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+        </FadeInOnView>
+      </div>
+      <div className="col-start-1 col-span-2 row-start-2 lg:col-start-1 lg:row-start-2 lg:col-span-3">
         <FadeInOnView index={4} direction="up" delay={150}>
           <Text
             as="p"
@@ -73,26 +93,6 @@ const Presentation = () => {
               <FaRegFilePdf />
               {ctaCv}
             </CtaButton>
-          </div>
-        </FadeInOnView>
-      </div>
-      <div className="lg:col-span-2">
-        <FadeInOnView index={2} direction="right" delay={150}>
-          <div
-            className="marks w-full max-w-sm mx-auto lg:max-w-none"
-            style={{
-              position: "relative",
-              aspectRatio: "1 / 1.05",
-              border: "1px solid var(--line)",
-            }}
-          >
-            <Image
-              src="/photo.png"
-              fill
-              alt="Gabriel López picture"
-              style={{ objectFit: "cover" }}
-              priority
-            />
           </div>
         </FadeInOnView>
       </div>
