@@ -11,6 +11,7 @@ import {
   FaPython,
   FaReact,
 } from "react-icons/fa";
+import { GiBearHead } from "react-icons/gi";
 import { GrMysql } from "react-icons/gr";
 import { IoLogoFirebase } from "react-icons/io5";
 import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
@@ -60,6 +61,7 @@ const Skills = () => {
         { label: "Radix UI", icon: <SiRadixui /> },
         { label: "Chakra UI", icon: <SiChakraui /> },
         { label: "TanStack Query", icon: <SiTanstack /> },
+        { label: "Zustand", icon: <GiBearHead /> },
       ],
     },
     {
