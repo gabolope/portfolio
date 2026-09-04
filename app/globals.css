@@ -155,12 +155,18 @@ body {
   align-items: center;
   gap: 14px;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .section-label {
+    font-size: 1.5rem;
+  }
 }
 .section-label .idx {
   color: var(--signal);

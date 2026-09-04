@@ -115,6 +115,7 @@ const Skills = () => {
                 <div
                   style={{
                     border: "1px solid var(--line)",
+                    background: "var(--surface)",
                     padding: "9px 14px",
                     display: "flex",
                     alignItems: "center",
