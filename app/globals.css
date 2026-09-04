@@ -4,7 +4,7 @@
   --bg: #eef0ea;
   --surface: #f6f7f2;
   --fg: #14180f;
-  --muted: #5b6459;
+  --muted: #0b0c0a;
   --signal: #1e8f5f;
   --signal-soft: rgba(30, 143, 95, 0.12);
   --amber: #c2792e;
@@ -91,13 +91,15 @@ body {
     transform: translate(var(--sway), 20vh) rotate(calc(var(--rotate) + 70deg));
   }
   40% {
-    transform: translate(calc(var(--sway) * -1), 40vh) rotate(calc(var(--rotate) + 150deg));
+    transform: translate(calc(var(--sway) * -1), 40vh)
+      rotate(calc(var(--rotate) + 150deg));
   }
   60% {
     transform: translate(var(--sway), 60vh) rotate(calc(var(--rotate) + 210deg));
   }
   80% {
-    transform: translate(calc(var(--sway) * -1), 80vh) rotate(calc(var(--rotate) + 280deg));
+    transform: translate(calc(var(--sway) * -1), 80vh)
+      rotate(calc(var(--rotate) + 280deg));
   }
   94% {
     opacity: var(--o);

@@ -67,48 +67,49 @@ const ProjectImageShowcase = ({
     );
   }
 
+  const current = screens![index];
+  const previous = prevIndex !== null ? screens![prevIndex] : null;
+
   return (
     <Box className={styles.stage}>
-      {prevIndex !== null && (
-        <DeviceMockup screen={screens![prevIndex]} title={title} />
-      )}
-      <DeviceMockup
-        key={index}
-        screen={screens![index]}
-        title={title}
-        fadeIn={prevIndex !== null}
-      />
+      <Box className={styles.desktopFrame}>
+        {previous && (
+          <Image
+            src={previous.desktop}
+            alt={`${title} desktop screenshot`}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        )}
+        <Image
+          key={index}
+          src={current.desktop}
+          alt={`${title} desktop screenshot`}
+          fill
+          style={{ objectFit: "cover" }}
+          className={previous ? styles.imageEnter : undefined}
+        />
+      </Box>
+      <Box className={styles.mobileOverlay}>
+        {previous && (
+          <Image
+            src={previous.mobile}
+            alt={`${title} mobile screenshot`}
+            fill
+            style={{ objectFit: "cover", borderRadius: "10px" }}
+          />
+        )}
+        <Image
+          key={index}
+          src={current.mobile}
+          alt={`${title} mobile screenshot`}
+          fill
+          style={{ objectFit: "cover", borderRadius: "10px" }}
+          className={previous ? styles.imageEnter : undefined}
+        />
+      </Box>
     </Box>
   );
 };
-
-const DeviceMockup = ({
-  screen,
-  title,
-  fadeIn,
-}: {
-  screen: Screen;
-  title: string;
-  fadeIn?: boolean;
-}) => (
-  <Box className={`${styles.layer} ${fadeIn ? styles.layerEnter : ""}`}>
-    <Box className={styles.desktopFrame}>
-      <Image
-        src={screen.desktop}
-        alt={`${title} desktop screenshot`}
-        fill
-        style={{ objectFit: "cover" }}
-      />
-    </Box>
-    <Box className={styles.mobileOverlay}>
-      <Image
-        src={screen.mobile}
-        alt={`${title} mobile screenshot`}
-        fill
-        style={{ objectFit: "cover", borderRadius: "10px" }}
-      />
-    </Box>
-  </Box>
-);
 
 export default ProjectImageShowcase;

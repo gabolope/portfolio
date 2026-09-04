@@ -56,12 +56,26 @@ const Projects = () => {
       ],
     },
     {
-      title: "Issue Tracker",
+      title: "Critter",
       description: d1,
       madeWith: ["Next.js", "Prisma", "MySQL", "React Query"],
-      image: "/projects/issueTracker.png",
-      link: "https://issue-tracker-drab-eta.vercel.app/",
+      image: "/projects/critter/desktop1.png",
+      link: "https://critter.gabriellopez.com.ar/",
       github: "https://github.com/gabolope/issue-tracker",
+      screens: [
+        {
+          mobile: "/projects/critter/mobile1.png",
+          desktop: "/projects/critter/desktop1.png",
+        },
+        {
+          mobile: "/projects/critter/mobile2.png",
+          desktop: "/projects/critter/desktop2.png",
+        },
+        {
+          mobile: "/projects/critter/mobile3.png",
+          desktop: "/projects/critter/desktop3.png",
+        },
+      ],
     },
     {
       title: "ThermoReleaf",

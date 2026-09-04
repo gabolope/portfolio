@@ -4,12 +4,7 @@
   overflow: visible;
 }
 
-.layer {
-  position: absolute;
-  inset: 0;
-}
-
-.layerEnter {
+.imageEnter {
   animation: fadeIn 1s ease forwards;
 }
 
@@ -28,6 +23,7 @@
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--line);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .mobileOverlay {
