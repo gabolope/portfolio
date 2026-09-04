@@ -129,7 +129,7 @@ const Projects = () => {
           key={project.title}
           index={index}
           delay={100}
-          threshold={0.75}
+          threshold={0.25}
           alternating
         >
           <Grid

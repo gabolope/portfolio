@@ -36,8 +36,19 @@ const seededRandom = (seed: number) => {
 
 const rand = seededRandom(20260903);
 
+// Push horizontal placement away from the center and toward the edges:
+// values near 0.5 get spread outward, so leaves thin out in the middle
+// of the viewport and cluster more toward the sides.
+const EDGE_BIAS = 0.55;
+const biasTowardEdges = (u: number) => {
+  const t = u * 2 - 1;
+  const t2 = Math.sign(t) * Math.abs(t) ** EDGE_BIAS;
+  return (t2 + 1) / 2;
+};
+
 const LEAVES: Leaf[] = Array.from({ length: LEAF_COUNT }, (_, i) => {
-  const x = ((i + rand()) / LEAF_COUNT) * 96 + 2;
+  const u = (i + rand()) / LEAF_COUNT;
+  const x = biasTowardEdges(u) * 96 + 2;
   const y = rand() * 92 + 4;
   const size = 7 + rand() * 10;
   const duration = 20 + rand() * 22;

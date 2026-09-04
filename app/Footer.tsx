@@ -16,8 +16,11 @@ const Footer = () => {
   };
   return (
     <footer
-      className="mt-20 py-14 border-t border-(--line)"
-      style={{ background: "var(--surface)" }}
+      className="mt-20 py-14"
+      style={{
+        background: "#10140f",
+        borderTop: "1px solid rgba(231, 233, 225, 0.14)",
+      }}
     >
       <Container>
         <Flex direction="column" align="center" justify="center" gap="5">
@@ -25,6 +28,7 @@ const Footer = () => {
             <MdKeyboardDoubleArrowUp
               size={30}
               className="glow hover:scale-110 transition-transform duration-200"
+              style={{ color: "#e7e9e1" }}
             />
           </button>
           <p
@@ -32,7 +36,7 @@ const Footer = () => {
               fontFamily: "var(--font-mono)",
               fontSize: "0.75rem",
               letterSpacing: "0.06em",
-              color: "var(--muted)",
+              color: "#8b9186",
             }}
           >
             {copyright}

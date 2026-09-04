@@ -3,7 +3,6 @@
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Container, Flex } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
@@ -17,6 +16,7 @@ const NavBar = () => {
         <Flex justify="between" align="center">
           <Link
             href="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2 glow"
           >
             <Brand />
@@ -31,25 +31,22 @@ const NavBar = () => {
 export default NavBar;
 
 const Brand = () => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
-      <span className="relative w-6 h-6 shrink-0">
-        {mounted && (
-          <Image
-            src={resolvedTheme === "dark" ? "/logoWhite.svg" : "/logoBlack.svg"}
-            alt=""
-            fill
-            style={{ objectFit: "contain" }}
-          />
-        )}
-      </span>
+      <span
+        aria-hidden
+        className="inline-block w-6 h-6 shrink-0 bg-current transition-colors"
+        style={{
+          WebkitMaskImage: "url(/logoBlack.svg)",
+          maskImage: "url(/logoBlack.svg)",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+        }}
+      />
       <span
         className="text-lg md:text-lg lg:text-xl font-semibold"
         style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.01em" }}

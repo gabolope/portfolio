@@ -9,6 +9,7 @@ import { Providers } from "./ThemeProvider";
 import Footer from "./Footer";
 import { LanguageProvider } from "./context/LanguageContext";
 import { Background } from "./components/Background";
+import BackToTop from "./components/BackToTop";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
                 <Container>{children}</Container>
               </main>
               <Footer />
+              <BackToTop />
             </Theme>
           </LanguageProvider>
         </Providers>

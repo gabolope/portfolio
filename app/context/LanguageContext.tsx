@@ -23,7 +23,12 @@ export const LanguageProvider = ({
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem("language") as Language | null;
-    if (saved) setLanguage(saved);
+    if (saved) {
+      setLanguage(saved);
+    } else {
+      const browserLang = navigator.language?.slice(0, 2).toLowerCase();
+      setLanguage(browserLang === "es" ? "es" : "en");
+    }
   }, []);
 
   const handleSetLanguage = (lang: Language) => {

@@ -62,6 +62,7 @@ export const translations = {
       visit: "Visit",
       code: "Code",
       resume: "Resume",
+      backToTop: "Back to top",
     },
   },
   es: {
@@ -128,6 +129,7 @@ export const translations = {
       visit: "Visitar",
       code: "Código",
       resume: "Currículum",
+      backToTop: "Volver arriba",
     },
   },
 };
