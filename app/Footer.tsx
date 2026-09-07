@@ -40,9 +40,9 @@ const Footer = () => {
             />
           </button>
           <p
+            className="text-[0.5rem] md:text-xs"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "0.75rem",
               letterSpacing: "0.06em",
               color: "#8b9186",
             }}

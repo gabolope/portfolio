@@ -1,6 +1,7 @@
 "use client";
 
 import { Grid, Heading, Text } from "@radix-ui/themes";
+import { TbBrowser, TbLayoutDashboard, TbRobot, TbTools } from "react-icons/tb";
 import FadeInOnView from "../components/FadeInOnView";
 import SectionHeading from "../components/SectionHeading";
 import { useLanguage } from "../context/LanguageContext";
@@ -10,40 +11,51 @@ const translations = {
     eyebrowIndex: "01",
     eyebrowLabel: "What I Offer",
     title: "Services",
-    o1t: "Landing Pages & Marketing Sites",
-    o1d: "Responsive, fast-loading pages focused on clear messaging and conversion, built with modern React/Next.js and clean, maintainable code.",
-    o2t: "Full-Stack Web Applications",
-    o2d: "End-to-end products with React/Next.js on the front and Node.js, Prisma and PostgreSQL/MySQL on the back — authentication, dashboards, and everything in between.",
+    o1t: "Websites",
+    o1d: "Pages designed to highlight your brand. Whether your brand already has its own style or you need a new one, my design adapts to your needs.",
+    o2t: "Web Applications",
+    o2d: "Inventory systems, payment processing, automated messaging. I build applications that simplify problems, no matter how complex.",
     o3t: "AI-Powered Features",
-    o3d: "Practical integrations with LLM agents — automated support, smart triage, content generation — built to fit into a real workflow, not just a demo.",
+    o3d: "Practical integrations with AI agents that assist you with your tasks.",
     o4t: "Maintenance & Technical Support",
-    o4d: "Bug fixes, performance improvements, and ongoing support for existing sites and applications, so you can focus on your business.",
+    o4d: "All my products come with maintenance service. I can also update and fix your existing site.",
   },
   es: {
     eyebrowIndex: "01",
     eyebrowLabel: "Qué ofrezco",
     title: "Servicios",
-    o1t: "Landing Pages y Sitios de Marketing",
-    o1d: "Páginas responsivas y de carga rápida, enfocadas en un mensaje claro y en la conversión, construidas con React/Next.js moderno y código limpio y mantenible.",
-    o2t: "Aplicaciones Web Full-Stack",
-    o2d: "Productos completos con React/Next.js en el frontend y Node.js, Prisma y PostgreSQL/MySQL en el backend — autenticación, dashboards y todo lo que haga falta.",
+    o1t: "Sitios Web",
+    o1d: "Páginas diseñadas para resaltar tu marca. Ya sea que tu marca tenga un estilo propio o necesites uno nuevo, mi diseño se adapta a tus necesidades.",
+    o2t: "Aplicaciones Web",
+    o2d: "Sistemas de inventariado, de cobro, de respuesta de mensajes. Diseño aplicaciones que simplifican problemas sin importar su complejidad..",
     o3t: "Funcionalidades con IA",
-    o3d: "Integraciones prácticas con agentes LLM — soporte automatizado, triaje inteligente, generación de contenido — pensadas para encajar en un flujo de trabajo real, no solo una demo.",
+    o3d: "Integraciones prácticas con agentes IA que te asisten en tus tareas.",
     o4t: "Mantenimiento y Soporte Técnico",
-    o4d: "Corrección de bugs, mejoras de performance y soporte continuo para sitios y aplicaciones existentes, para que puedas enfocarte en tu negocio.",
+    o4d: "Todos mis productos cuentan con servicio de mantenimiento. También puedo actualizar y arreglar tu sitio existente.",
   },
 };
 
 const ServicesOfferings = () => {
   const { language } = useLanguage();
-  const { eyebrowIndex, eyebrowLabel, title, o1t, o1d, o2t, o2d, o3t, o3d, o4t, o4d } =
-    translations[language];
+  const {
+    eyebrowIndex,
+    eyebrowLabel,
+    title,
+    o1t,
+    o1d,
+    o2t,
+    o2d,
+    o3t,
+    o3d,
+    o4t,
+    o4d,
+  } = translations[language];
 
   const cards = [
-    { title: o1t, text: o1d },
-    { title: o2t, text: o2d },
-    { title: o3t, text: o3d },
-    { title: o4t, text: o4d },
+    { title: o1t, text: o1d, Icon: TbBrowser },
+    { title: o2t, text: o2d, Icon: TbLayoutDashboard },
+    { title: o3t, text: o3d, Icon: TbRobot },
+    { title: o4t, text: o4d, Icon: TbTools },
   ];
 
   return (
@@ -53,19 +65,36 @@ const ServicesOfferings = () => {
         {cards.map((card, index) => (
           <FadeInOnView key={card.title} index={index} delay={150}>
             <div
+              className="flex items-center"
               style={{
                 height: "100%",
                 border: "1px solid var(--line)",
                 background: "var(--surface)",
                 padding: "28px 24px",
+                gap: "20px",
               }}
             >
-              <Heading mb="3" size={{ initial: "6", sm: "7" }}>
-                {card.title}
-              </Heading>
-              <Text style={{ color: "var(--muted)", lineHeight: 1.65 }}>
-                {card.text}
-              </Text>
+              <div style={{ flex: 1 }}>
+                <Heading mb="3" size={{ initial: "6", sm: "7" }}>
+                  {card.title}
+                </Heading>
+                <Text style={{ color: "var(--muted)", lineHeight: 1.65 }}>
+                  {card.text}
+                </Text>
+              </div>
+              <div
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0"
+                style={{
+                  borderRadius: "20%",
+                  background: "var(--signal-soft)",
+                  color: "var(--signal)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <card.Icon size="46%" />
+              </div>
             </div>
           </FadeInOnView>
         ))}

@@ -10,34 +10,45 @@ const translations = {
     eyebrowIndex: "02",
     eyebrowLabel: "How I Work",
     title: "Process",
-    s1t: "Discovery Call",
-    s1d: "We talk through your goals, scope and timeline to see if it's a good fit.",
+    s1t: "Initial Meeting",
+    s1d: "We talk about your goals, scope and timeline.",
     s2t: "Proposal & Scope",
-    s2d: "You get a clear proposal — deliverables, timeline and cost — before any work starts.",
-    s3t: "Build & Iterate",
-    s3d: "Development happens in short cycles with regular check-ins, so you always know where things stand.",
+    s2d: "You get a proposal for the website design, along with a timeline and costs.",
+    s3t: "Development",
+    s3d: "Development moves forward with updates on the project's status.",
     s4t: "Launch & Support",
-    s4d: "I help you ship, and stay available for fixes, tweaks and future iterations.",
+    s4d: "Project deployment and verification that everything works correctly.",
   },
   es: {
     eyebrowIndex: "02",
     eyebrowLabel: "Cómo trabajo",
     title: "Proceso",
-    s1t: "Llamada Inicial",
-    s1d: "Hablamos sobre tus objetivos, alcance y plazos para ver si encajamos bien.",
+    s1t: "Reunión Inicial",
+    s1d: "Hablamos sobre tus objetivos, alcance y plazos.",
     s2t: "Propuesta y Alcance",
-    s2d: "Recibís una propuesta clara — entregables, cronograma y costo — antes de empezar a trabajar.",
-    s3t: "Desarrollo Iterativo",
-    s3d: "El desarrollo avanza en ciclos cortos con check-ins regulares, para que siempre sepas en qué estamos.",
+    s2d: "Recibís una propuesta para el diseño del sitio web, junto a un cronograma y costos.",
+    s3t: "Desarrollo",
+    s3d: "El desarrollo avanza con actualizaciones del estado del proyecto.",
     s4t: "Lanzamiento y Soporte",
-    s4d: "Te ayudo a lanzar el producto y sigo disponible para ajustes, correcciones y futuras iteraciones.",
+    s4d: "Despliegue del proyecto y verificación de correcto funcionamiento.",
   },
 };
 
 const ServicesProcess = () => {
   const { language } = useLanguage();
-  const { eyebrowIndex, eyebrowLabel, title, s1t, s1d, s2t, s2d, s3t, s3d, s4t, s4d } =
-    translations[language];
+  const {
+    eyebrowIndex,
+    eyebrowLabel,
+    title,
+    s1t,
+    s1d,
+    s2t,
+    s2d,
+    s3t,
+    s3d,
+    s4t,
+    s4d,
+  } = translations[language];
 
   const steps = [
     { title: s1t, text: s1d },
