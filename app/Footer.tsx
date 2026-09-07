@@ -2,11 +2,19 @@
 import { Container, Flex } from "@radix-ui/themes";
 import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { useLanguage } from "./context/LanguageContext";
-import { translations } from "./translations";
+
+const translations = {
+  en: {
+    copyright: "© 2026 Gabriel López. All rights reserved.",
+  },
+  es: {
+    copyright: "© 2026 Gabriel López. Todos los derechos reservados.",
+  },
+};
 
 const Footer = () => {
   const { language } = useLanguage();
-  const { copyright } = translations[language].footer;
+  const { copyright } = translations[language];
 
   const scrollToTop = () => {
     window.scrollTo({

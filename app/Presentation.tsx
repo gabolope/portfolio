@@ -7,12 +7,29 @@ import Image from "next/image";
 import CtaButton from "./components/CtaButton";
 import FadeInOnView from "./components/FadeInOnView";
 import { useLanguage } from "./context/LanguageContext";
-import { translations } from "./translations";
+
+const translations = {
+  en: {
+    status: "Open to work",
+    t1: "Hello! I'm",
+    t2: "Frontend Developer",
+    t3: "I'm a Frontend Developer passionate about building user-centered web applications. With a background in scientific research and specialization in React, TypeScript, and modern frontend architecture, I excel at turning complex requirements into clear, functional experiences. My years in research formed my analytical mindset and problem-solving skills, which translate directly into robust, maintainable code.",
+    ctaProjects: "See projects",
+    ctaCv: "Download CV",
+  },
+  es: {
+    status: "Disponible para trabajar",
+    t1: "Hola! Soy",
+    t2: "Desarrollador Frontend",
+    t3: "Soy Desarrollador Frontend apasionado por construir aplicaciones web centradas en el usuario. Con formación en investigación científica y especialización en React, TypeScript y arquitectura frontend moderna, destaco en transformar requisitos complejos en experiencias claras y funcionales. Mis años en investigación formaron mi pensamiento analítico y capacidad de resolución de problemas, que se traducen directamente en código robusto y mantenible.",
+    ctaProjects: "Ver proyectos",
+    ctaCv: "Descargar CV",
+  },
+};
 
 const Presentation = () => {
   const { language } = useLanguage();
-  const { status, t1, t2, t3, ctaProjects, ctaCv } =
-    translations[language].presentation;
+  const { status, t1, t2, t3, ctaProjects, ctaCv } = translations[language];
 
   return (
     <div className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 mb-20 items-start lg:items-center">

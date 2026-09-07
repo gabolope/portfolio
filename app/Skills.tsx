@@ -34,12 +34,32 @@ import { TiHtml5 } from "react-icons/ti";
 import FadeInOnView from "./components/FadeInOnView";
 import SectionHeading from "./components/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
-import { translations } from "./translations";
+
+const translations = {
+  en: {
+    eyebrowIndex: "02",
+    eyebrowLabel: "Capabilities",
+    title: "Skills",
+    languages: "Languages",
+    frontend: "Frontend",
+    backend: "Backend & Database",
+    tools: "Tools",
+  },
+  es: {
+    eyebrowIndex: "02",
+    eyebrowLabel: "Capacidades",
+    title: "Habilidades",
+    languages: "Lenguajes",
+    frontend: "Frontend",
+    backend: "Backend & Base de Datos",
+    tools: "Herramientas",
+  },
+};
 
 const Skills = () => {
   const { language } = useLanguage();
   const { eyebrowIndex, eyebrowLabel, title, languages, frontend, backend, tools } =
-    translations[language].skills;
+    translations[language];
 
   const skillCategories = [
     {

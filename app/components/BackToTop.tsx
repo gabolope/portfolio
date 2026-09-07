@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaArrowUp } from "react-icons/fa6";
 import { useLanguage } from "../context/LanguageContext";
-import { translations } from "../translations";
+
+const translations = {
+  en: { backToTop: "Back to top" },
+  es: { backToTop: "Volver arriba" },
+};
 
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);
   const { language } = useLanguage();
-  const label = translations[language].buttons.backToTop;
+  const label = translations[language].backToTop;
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);

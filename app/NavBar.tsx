@@ -4,10 +4,29 @@ import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Container, Flex } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { useLanguage } from "./context/LanguageContext";
-import { translations } from "./translations";
+
+const translations = {
+  en: {
+    about: "About",
+    skills: "Skills",
+    projects: "Projects",
+    contact: "Contact",
+    services: "Services",
+    resume: "Resume",
+  },
+  es: {
+    about: "Sobre mí",
+    skills: "Habilidades",
+    projects: "Proyectos",
+    contact: "Contacto",
+    services: "Servicios",
+    resume: "CV",
+  },
+};
 
 const NavBar = () => {
   return (
@@ -62,14 +81,19 @@ const NavLinks = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { language, setLanguage } = useLanguage();
-  const { about, skills, projects, contact, resume } =
-    translations[language].navbar;
+  const { about, skills, projects, contact, services, resume } =
+    translations[language];
+
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const homeAnchor = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
   const links = [
-    { label: about, href: "#about" },
-    { label: skills, href: "#skills" },
-    { label: projects, href: "#projects" },
-    { label: contact, href: "#contact" },
+    { label: about, href: homeAnchor("#about") },
+    { label: skills, href: homeAnchor("#skills") },
+    { label: projects, href: homeAnchor("#projects") },
+    { label: contact, href: homeAnchor("#contact") },
+    { label: services, href: "/services" },
   ];
 
   const navFont = {

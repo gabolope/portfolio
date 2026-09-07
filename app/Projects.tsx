@@ -8,7 +8,31 @@ import FadeInOnView from "./components/FadeInOnView";
 import ProjectImageShowcase from "./components/ProjectImageShowcase";
 import SectionHeading from "./components/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
-import { translations } from "./translations";
+
+const translations = {
+  en: {
+    eyebrowIndex: "03",
+    eyebrowLabel: "Selected Work",
+    title: "Projects",
+    d1: "A comprehensive issue tracking system featuring user authentication, advanced filtering, pagination, task assignment, and an analytics dashboard with charts, demonstrating full-stack capabilities.",
+    d3: "Responsive landing page for a biotech startup, emphasizing clean design and effective messaging.",
+    d4: "Multi-page landing page for a furniture company, featuring section-based navigation and visual storytelling.",
+    d5: "AI-assisted support helpdesk with two-way email ticketing, role-based authentication, and automated triage: inbound emails are classified and resolved by LLM agents against a knowledge base, with a workspace for replies, ticket assignment, and AI-polished drafts. Questions about how it works? Email support@inbox.gabriellopez.com.ar and an AI agent will answer.",
+    visit: "Visit",
+    code: "Code",
+  },
+  es: {
+    eyebrowIndex: "03",
+    eyebrowLabel: "Trabajos seleccionados",
+    title: "Proyectos",
+    d1: "Aplicación completa de seguimiento de problemas que incluye autentificación de usuario, filtrado, paginación, agregado de problemas, y un dashboard con gráficos, demostrando habilidades full-stack.",
+    d3: "Página de destino responsiva para una startup de biotecnología, enfatizando diseño limpio y mensajería efectiva.",
+    d4: "Página de destino multipágina para una empresa de muebles, con navegación por secciones y narrativa visual.",
+    d5: "Mesa de ayuda de soporte asistida por IA con tickets por correo bidireccional, autenticación por roles y triaje automatizado: los correos entrantes se clasifican y resuelven mediante agentes con LLM contra una base de conocimiento, con un espacio de trabajo para respuestas, asignación de tickets y redacción pulida por IA. ¿Preguntas sobre cómo funciona? Escribí a support@inbox.gabriellopez.com.ar y un agente de IA responderá.",
+    visit: "Visitar",
+    code: "Código",
+  },
+};
 
 interface Project {
   title: string;
@@ -22,9 +46,8 @@ interface Project {
 
 const Projects = () => {
   const { language } = useLanguage();
-  const { eyebrowIndex, eyebrowLabel, title, d1, d3, d4, d5 } =
-    translations[language].projects;
-  const { visit, code } = translations[language].buttons;
+  const { eyebrowIndex, eyebrowLabel, title, d1, d3, d4, d5, visit, code } =
+    translations[language];
 
   const projects: Project[] = [
     {
