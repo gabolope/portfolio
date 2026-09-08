@@ -6,6 +6,7 @@ interface Props {
   href: string;
   variant?: "solid" | "accent" | "outline";
   openInNewTab?: boolean;
+  className?: string;
 }
 
 const CtaButton = ({
@@ -13,11 +14,12 @@ const CtaButton = ({
   href,
   variant = "outline",
   openInNewTab = false,
+  className,
 }: Props) => {
   return (
     <Link
       href={href}
-      className={`${styles.slider} ${styles[variant]}`}
+      className={`${styles.slider} ${styles[variant]} ${className ?? ""}`}
       target={openInNewTab ? "_blank" : undefined}
       rel={openInNewTab ? "noopener noreferrer" : undefined}
     >

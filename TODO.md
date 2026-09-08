@@ -21,11 +21,9 @@ Mejoras de copy, estructura y SEO. Impacto real pero no urgente.
 
 ### Copy
 
-- [ ] **Reescribir las cards en clave de problema del cliente** — hoy hablan de tu capacidad, no de su dolor.
-  - "Diseño aplicaciones que simplifican problemas sin importar su complejidad" → "Dejá de anotar pedidos en un cuaderno".
-  - "Funcionalidades con IA" es abstracto para un dueño de local. Concretar: un bot que responde consultas por WhatsApp fuera de horario, un buscador que entiende lenguaje natural.
-- [ ] **Cambiar el texto de los CTAs** — hoy dicen el canal ("EMAIL", "WHATSAPP"). Que digan la acción: "Pedime un presupuesto", "Contame tu proyecto".
-- [ ] **Agregar subtítulo en el hero que diga para quién es** — "Para comercios, estudios y emprendimientos de Mar del Plata".
+- [x] **Reescribir las cards en clave de problema del cliente** — en `app/services/ServicesOfferings.tsx`, la card de Aplicaciones Web ahora cierra con "para que dejes de anotar pedidos en un cuaderno o de perder tiempo en tareas repetitivas" en vez de la descripción abstracta de capacidad. La de IA concreta los ejemplos: "un bot que responde consultas por WhatsApp fuera de horario, un buscador que entiende lenguaje natural en vez de palabras clave exactas".
+- [x] **Cambiar el texto de los CTAs** — en `app/services/ServicesHero.tsx` los botones ya no dicen el canal: "Pedime un presupuesto" (antes "Email") y "Contame tu proyecto" (antes "WhatsApp"). Se dejaron sin cambios los links de `HoverBar`, `Contact` y `ServicesContact`, que funcionan como una lista de canales/redes (Email, LinkedIn, GitHub, Resume), no como el CTA principal.
+- [x] **Agregar subtítulo en el hero que diga para quién es** — agregado en `ServicesHero.tsx`: "Para comercios, estudios y emprendimientos — estés donde estés, arrancamos con una llamada". Sin mención a Mar del Plata a propósito: el servicio no está limitado a una localidad, se puede atender de forma remota desde cualquier lugar (consistente con el JSON-LD `ProfessionalService` que ya evita `areaServed` por el mismo motivo).
 - [x] **Traducir la meta description al español** — reescritas en `app/services/page.tsx` (`description`, `openGraph.description`, `twitter.description`) en español, orientadas a resultado para el dueño de PyME ("más ventas, mejor atención a tus clientes, presupuesto claro") en vez de listar el stack técnico. Aplicado el mismo criterio a la página general (`app/layout.tsx`): descripciones traducidas al español con foco en resultados en vez de listar tecnologías, y corregido `openGraph.locale` de `en_US` a `es_AR` para que coincida con el idioma real del contenido.
 
 ### Estructura
@@ -33,6 +31,7 @@ Mejoras de copy, estructura y SEO. Impacto real pero no urgente.
 - [ ] **Agregar sección de preguntas frecuentes** — cuánto tarda, quién paga hosting y dominio, puedo editar el contenido yo después, qué pasa si necesito un cambio en 6 meses. Resuelve objeciones y te ahorra mails.
 - [ ] **Corregir jerarquía de encabezados** — hay 9 `<h1>` en la página (cada card de servicio y cada paso del proceso). Dejar uno solo (el del hero) y pasar el resto a `<h2>`/`<h3>`.
 - [ ] **Reducir el espacio vacío** — hay zonas muertas grandes entre el hero y "01 Servicios", y entre las cards y "02 Proceso". Empujan las pruebas sociales y el CTA final fuera del alcance de quien hace scroll rápido.
+- [ ] Sección mis trabajos: agregar los otros trabajos hechos, las apps. Primero mostrar las landing pages. Tiene que ser un carousel que cada proyecto cambiando cada 3 segundos.
 
 ### SEO
 
@@ -48,6 +47,7 @@ Detalles de pulido.
 
 - [x] **Corregir doble punto** — card de Aplicaciones Web: corregido `sin importar su complejidad..` → `sin importar su complejidad.` en `app/services/ServicesOfferings.tsx`.
 - [x] **Escribir el `alt` de las dos imágenes** — ambas (`app/services/PhoneMockup.tsx` y `app/services/ServicesContact.tsx`) son puramente decorativas: el contenido real (título, texto) ya está en HTML accesible aparte, y las imágenes son ilustraciones de apoyo (mockup del teléfono, avión de papel). Ya tenían `alt=""` junto con `aria-hidden`, que es el tratamiento correcto para este caso — no hacía falta describirlas.
+- [ ] Botón de idioma tiene que tener mejor UI UX, que se note que es un botón de lenguaje y tenga algun ícono si es necesario.
 - [ ] **Revisar el sitio en mobile real** — no pude verificarlo bien desde el navegador remoto. Chequear especialmente el hero, el espaciado entre secciones y el tamaño de los botones.
 
 ---

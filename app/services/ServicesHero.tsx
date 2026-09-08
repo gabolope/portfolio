@@ -3,6 +3,7 @@
 import { Heading, Text } from "@radix-ui/themes";
 import { FaWhatsapp } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
+import { TbBulb } from "react-icons/tb";
 import CtaButton from "../components/CtaButton";
 import FadeInOnView from "../components/FadeInOnView";
 import PhoneMockup from "./PhoneMockup";
@@ -12,25 +13,41 @@ const translations = {
   en: {
     eyebrow: "Digital Solutions",
     title: "Take your business to the next level",
+    audience:
+      "For shops, studios and small businesses. Wherever you are, we start with a call.",
     subtitlePre: "Stand out with a ",
     subtitleHighlight: "website specially designed",
     subtitlePost:
       " to show your clients the quality of your products and services.",
+    ctaEmail: "Request a quote",
+    ctaWhatsapp: "Tell me your idea",
   },
   es: {
     eyebrow: "Soluciones digitales",
     title: "Llevá tu negocio al siguiente nivel",
+    audience:
+      "Para comercios, estudios y emprendimientos. Estés donde estés, arrancamos con una llamada.",
     subtitlePre: "Destacate con una ",
     subtitleHighlight: "página web especialmente diseñada",
     subtitlePost:
       " para mostrarles a tus clientes la calidad de tus productos y servicios.",
+    ctaEmail: "Pedime un presupuesto",
+    ctaWhatsapp: "Contame de tu proyecto",
   },
 };
 
 const ServicesHero = () => {
   const { language } = useLanguage();
-  const { eyebrow, title, subtitlePre, subtitleHighlight, subtitlePost } =
-    translations[language];
+  const {
+    eyebrow,
+    title,
+    audience,
+    subtitlePre,
+    subtitleHighlight,
+    subtitlePost,
+    ctaEmail,
+    ctaWhatsapp,
+  } = translations[language];
 
   return (
     <div className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 mb-20 items-start lg:items-center">
@@ -50,7 +67,24 @@ const ServicesHero = () => {
           </Heading>
         </FadeInOnView>
         <FadeInOnView index={0} direction="up" delay={100}>
-          <div className="eyebrow ">{eyebrow}</div>
+          <div className="eyebrow eyebrow--icon">
+            <TbBulb size={14} />
+            {eyebrow}
+          </div>
+        </FadeInOnView>
+        <FadeInOnView index={2} direction="up" delay={100}>
+          <Text
+            as="p"
+            size="2"
+            mb="5"
+            style={{
+              color: "var(--muted)",
+              fontFamily: "var(--font-mono)",
+              letterSpacing: "0.02em",
+            }}
+          >
+            {audience}
+          </Text>
         </FadeInOnView>
       </div>
       <div className="col-start-2 row-start-1 lg:col-start-4 lg:row-start-1 lg:col-span-2 lg:row-span-2">
@@ -84,21 +118,19 @@ const ServicesHero = () => {
           </Text>
         </FadeInOnView>
         <FadeInOnView index={5} direction="up" delay={150}>
-          <div className="flex flex-wrap gap-3">
-            <CtaButton
-              href="/contact"
-              variant="solid"
-            >
+          <div className="grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
+            <CtaButton href="/contact" variant="solid" className="sm:w-56">
               <MdOutlineEmail />
-              Email
+              {ctaEmail}
             </CtaButton>
             <CtaButton
               href="https://wa.me/542235597430"
               variant="accent"
               openInNewTab
+              className="sm:w-56"
             >
               <FaWhatsapp />
-              WhatsApp
+              {ctaWhatsapp}
             </CtaButton>
           </div>
         </FadeInOnView>
