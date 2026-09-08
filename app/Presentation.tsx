@@ -39,16 +39,18 @@ const Presentation = () => {
         </FadeInOnView>
         <FadeInOnView index={1} direction="up" delay={100}>
           <Heading
+            asChild
             mb="1"
             size={{ initial: "4", sm: "7" }}
             weight="medium"
             style={{ color: "var(--muted)" }}
           >
-            {t1}
+            <p>{t1}</p>
           </Heading>
         </FadeInOnView>
         <FadeInOnView index={2} direction="up" delay={100}>
           <Heading
+            as="h1"
             mb="3"
             size={{ initial: "6", sm: "9" }}
             style={{
@@ -62,12 +64,13 @@ const Presentation = () => {
         </FadeInOnView>
         <FadeInOnView index={3} direction="up" delay={100}>
           <Heading
+            asChild
             mb="4"
             size={{ initial: "4", sm: "7" }}
             weight="medium"
             style={{ letterSpacing: "-0.01em" }}
           >
-            {t2}
+            <p>{t2}</p>
           </Heading>
         </FadeInOnView>
       </div>

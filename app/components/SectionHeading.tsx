@@ -1,3 +1,5 @@
+import { Heading } from "@radix-ui/themes";
+
 interface Props {
   index: string;
   label: string;
@@ -9,7 +11,9 @@ const SectionHeading = ({ index, title }: Props) => {
     <div className="mb-10">
       <div className="section-label">
         <span className="idx">{index}</span>
-        <span>{title}</span>
+        <Heading as="h2" style={{ all: "unset" }}>
+          {title}
+        </Heading>
       </div>
     </div>
   );

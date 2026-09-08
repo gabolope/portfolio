@@ -54,7 +54,7 @@ const About = () => {
                 padding: "28px 24px",
               }}
             >
-              <Heading mb="3" size={{ initial: "6", sm: "7" }}>
+              <Heading as="h3" mb="3" size={{ initial: "6", sm: "7" }}>
                 {card.title}
               </Heading>
               <Text style={{ color: "var(--muted)", lineHeight: 1.65 }}>

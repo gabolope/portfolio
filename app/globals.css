@@ -208,3 +208,114 @@ body {
   border-bottom: 1.5px solid var(--signal);
   border-right: 1.5px solid var(--signal);
 }
+
+/* Services "Work Delivered" carousel: fills the active indicator over the
+   autoplay interval, giving a visual countdown to the next slide. */
+@keyframes proof-progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.proof-progress-fill {
+  animation: proof-progress-fill var(--proof-duration, 3000ms) linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proof-progress-fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
+/* Services FAQ accordion: native <details>/<summary>, hairline-divided list.
+   The answer expands via an animated grid-template-rows track (0fr -> 1fr).
+   The `open` attribute and the `.faq-item--expanded` class are deliberately
+   decoupled (see FaqItem in ServicesFAQ.tsx): `open` is what the browser
+   uses to actually render the content, while `--expanded` drives the visual
+   transition. On close we flip `--expanded` off first (while `open` is
+   still true, so the content is still rendered and the transition can run)
+   and only remove `open` once that transition has finished — removing it
+   any earlier makes the browser's UA stylesheet hide the content with
+   `display: none` instantly, which can't be animated and was why closing
+   (and any open/close after the first) never animated. */
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 2px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::marker {
+  content: "";
+}
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 4px;
+}
+.faq-item summary:hover h3 {
+  color: var(--signal);
+}
+.faq-marker {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.faq-marker::before,
+.faq-marker::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--signal);
+  transform: translate(-50%, -50%);
+}
+.faq-marker::before {
+  width: 14px;
+  height: 1.5px;
+}
+.faq-marker::after {
+  width: 1.5px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+.faq-item--expanded .faq-marker::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.faq-item--expanded .faq-answer {
+  grid-template-rows: 1fr;
+}
+.faq-answer > div {
+  overflow: hidden;
+}
+.faq-answer p {
+  margin: 0;
+  padding: 0 2px 22px;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.65;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer,
+  .faq-marker::after {
+    transition: none;
+  }
+}

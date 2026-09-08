@@ -59,7 +59,7 @@ const ServicesOfferings = () => {
   ];
 
   return (
-    <section className="mb-24">
+    <section className="mb-16">
       <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
       <Grid gap="5" columns={{ initial: "1", sm: "2" }}>
         {cards.map((card, index) => (
@@ -75,7 +75,7 @@ const ServicesOfferings = () => {
               }}
             >
               <div style={{ flex: 1 }}>
-                <Heading mb="3" size={{ initial: "6", sm: "7" }}>
+                <Heading as="h3" mb="3" size={{ initial: "6", sm: "7" }}>
                   {card.title}
                 </Heading>
                 <Text style={{ color: "var(--muted)", lineHeight: 1.65 }}>

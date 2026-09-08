@@ -104,7 +104,7 @@ const Contact = () => {
               }}
             >
               <div className="min-h-[60px] sm:min-h-[100px] lg:min-h-[70px]">
-                <Heading size={{ initial: "6", sm: "7" }} mb="2">
+                <Heading as="h3" size={{ initial: "6", sm: "7" }} mb="2">
                   {card.title}
                 </Heading>
               </div>

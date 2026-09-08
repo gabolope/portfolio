@@ -50,10 +50,11 @@ const ServicesHero = () => {
   } = translations[language];
 
   return (
-    <div className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 mb-20 items-start lg:items-center">
+    <div className="grid grid-cols-[1fr_auto] gap-x-5 gap-y-5 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-0 mt-4 mb-16 items-start lg:items-center">
       <div className="col-start-1 row-start-1 lg:col-start-1 lg:row-start-1 lg:col-span-3">
         <FadeInOnView index={1} direction="up" delay={100}>
           <Heading
+            as="h1"
             mb="5"
             size={{ initial: "7", sm: "9" }}
             style={{

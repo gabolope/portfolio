@@ -8,17 +8,13 @@ import FadeInOnView from "./components/FadeInOnView";
 import ProjectImageShowcase from "./components/ProjectImageShowcase";
 import SectionHeading from "./components/SectionHeading";
 import { useLanguage } from "./context/LanguageContext";
+import { getProject, type ProjectScreen } from "./data/projects";
 
 const translations = {
   en: {
     eyebrowIndex: "03",
     eyebrowLabel: "Selected Work",
     title: "Projects",
-    d1: "A comprehensive issue tracking system featuring user authentication, advanced filtering, pagination, task assignment, and an analytics dashboard with charts, demonstrating full-stack capabilities.",
-    d3: "Responsive landing page for a biotech startup, emphasizing clean design and effective messaging.",
-    d4: "Multi-page landing page for a furniture company, featuring section-based navigation and visual storytelling.",
-    d5: "AI-assisted support helpdesk with two-way email ticketing, role-based authentication, and automated triage: inbound emails are classified and resolved by LLM agents against a knowledge base, with a workspace for replies, ticket assignment, and AI-polished drafts. Questions about how it works? Email support@inbox.gabriellopez.com.ar and an AI agent will answer.",
-    d6: "Music repertoire management system. Featuring role-based authentication for conductor/musician, real-time sync between the conductor and musicians during live performance, setlist building with lyrics and chords in ChordPro format, and a credential-free demo mode with sample content to explore the app.",
     visit: "Visit",
     code: "Code",
   },
@@ -26,142 +22,71 @@ const translations = {
     eyebrowIndex: "03",
     eyebrowLabel: "Trabajos seleccionados",
     title: "Proyectos",
-    d1: "Aplicación completa de seguimiento de problemas que incluye autentificación de usuario, filtrado, paginación, agregado de problemas, y un dashboard con gráficos, demostrando habilidades full-stack.",
-    d3: "Página de destino responsiva para una startup de biotecnología, enfatizando diseño limpio y mensajería efectiva.",
-    d4: "Página de destino multipágina para una empresa de muebles, con navegación por secciones y narrativa visual.",
-    d5: "Mesa de ayuda de soporte asistida por IA con tickets por correo bidireccional, autenticación por roles y triaje automatizado: los correos entrantes se clasifican y resuelven mediante agentes con LLM contra una base de conocimiento, con un espacio de trabajo para respuestas, asignación de tickets y redacción pulida por IA. ¿Preguntas sobre cómo funciona? Escribí a support@inbox.gabriellopez.com.ar y un agente de IA responderá.",
-    d6: "Sistema de gestión de repertorio musical. Autenticación basada en roles director/músico, sincronización en tiempo real entre el director y los músicos durante el vivo, armado de listas de canciones con letra y acordes en formato ChordPro, y un modo demo sin credenciales con contenido de muestra para explorar la app.",
     visit: "Visitar",
     code: "Código",
   },
 };
 
-interface Project {
+interface DisplayProject {
   title: string;
   description: string;
   madeWith: string[];
   image: string;
   link: string;
   github?: string;
-  screens?: { mobile: string; desktop: string }[];
+  screens: ProjectScreen[];
 }
+
+// Facts and copy (name, URL, screenshots, description) live in
+// app/data/projects.ts — this just picks the home page's order and pairs
+// each project with its tech-stack tags.
+const HOME_ORDER = [
+  {
+    id: "herald",
+    madeWith: [
+      "Bun",
+      "Express",
+      "React",
+      "Prisma",
+      "PostgreSQL",
+      "TanStack Query",
+    ],
+  },
+  {
+    id: "songmanager",
+    madeWith: ["React", "TypeScript", "Firebase", "Firestore", "Chakra UI"],
+  },
+  {
+    id: "critter",
+    madeWith: ["Next.js", "Prisma", "MySQL", "React Query"],
+  },
+  {
+    id: "thermoreleaf",
+    madeWith: ["HTML", "CSS", "Bootstrap"],
+  },
+  {
+    id: "kreart",
+    madeWith: ["HTML", "CSS", "Bootstrap"],
+  },
+] as const;
 
 const Projects = () => {
   const { language } = useLanguage();
-  const { eyebrowIndex, eyebrowLabel, title, d1, d3, d4, d5, d6, visit, code } =
+  const { eyebrowIndex, eyebrowLabel, title, visit, code } =
     translations[language];
 
-  const projects: Project[] = [
-    {
-      title: "Herald",
-      description: d5,
-      madeWith: [
-        "Bun",
-        "Express",
-        "React",
-        "Prisma",
-        "PostgreSQL",
-        "TanStack Query",
-      ],
-      image: "/projects/herald/desktop1.png",
-      link: "https://helpdesk-production-4866.up.railway.app/",
-      screens: [
-        {
-          mobile: "/projects/herald/mobile2.png",
-          desktop: "/projects/herald/desktop1.png",
-        },
-        {
-          mobile: "/projects/herald/mobile3.png",
-          desktop: "/projects/herald/desktop2.png",
-        },
-        {
-          mobile: "/projects/herald/mobile1.png",
-          desktop: "/projects/herald/desktop3.png",
-        },
-      ],
-    },
-    {
-      title: "Song Manager",
-      description: d6,
-      madeWith: ["React", "TypeScript", "Firebase", "Firestore", "Chakra UI"],
-      image: "/projects/songmanager/desktop1.png",
-      link: "https://songmanager.gabriellopez.com.ar/",
-      screens: [
-        {
-          mobile: "/projects/songmanager/mobile1.png",
-          desktop: "/projects/songmanager/desktop1.png",
-        },
-        {
-          mobile: "/projects/songmanager/mobile2.png",
-          desktop: "/projects/songmanager/desktop2.png",
-        },
-      ],
-    },
-    {
-      title: "Critter",
-      description: d1,
-      madeWith: ["Next.js", "Prisma", "MySQL", "React Query"],
-      image: "/projects/critter/desktop1.png",
-      link: "https://critter.gabriellopez.com.ar/",
-      github: "https://github.com/gabolope/issue-tracker",
-      screens: [
-        {
-          mobile: "/projects/critter/mobile1.png",
-          desktop: "/projects/critter/desktop1.png",
-        },
-        {
-          mobile: "/projects/critter/mobile2.png",
-          desktop: "/projects/critter/desktop2.png",
-        },
-        {
-          mobile: "/projects/critter/mobile3.png",
-          desktop: "/projects/critter/desktop3.png",
-        },
-      ],
-    },
-    {
-      title: "ThermoReleaf",
-      description: d3,
-      madeWith: ["HTML", "CSS", "Bootstrap"],
-      image: "/projects/thermoreleaf/desktop1.png",
-      link: "https://thermoreleaf.com.ar/",
-      screens: [
-        {
-          mobile: "/projects/thermoreleaf/mobile1.png",
-          desktop: "/projects/thermoreleaf/desktop1.png",
-        },
-        {
-          mobile: "/projects/thermoreleaf/mobile2.png",
-          desktop: "/projects/thermoreleaf/desktop2.png",
-        },
-        {
-          mobile: "/projects/thermoreleaf/mobile3.png",
-          desktop: "/projects/thermoreleaf/desktop3.png",
-        },
-      ],
-    },
-    {
-      title: "Kreart",
-      description: d4,
-      madeWith: ["HTML", "CSS", "Bootstrap"],
-      image: "/projects/kreart/desktop1.png",
-      link: "https://kreart-dpm.com/",
-      screens: [
-        {
-          mobile: "/projects/kreart/mobile1.png",
-          desktop: "/projects/kreart/desktop1.png",
-        },
-        {
-          mobile: "/projects/kreart/mobile2.png",
-          desktop: "/projects/kreart/desktop2.png",
-        },
-        {
-          mobile: "/projects/kreart/mobile3.png",
-          desktop: "/projects/kreart/desktop3.png",
-        },
-      ],
-    },
-  ];
+  const projects: DisplayProject[] = HOME_ORDER.map(({ id, madeWith }) => {
+    const project = getProject(id);
+    return {
+      title: project.title,
+      description: project.description[language],
+      madeWith: [...madeWith],
+      image: project.screens[0].desktop,
+      link: project.href,
+      github: project.github,
+      screens: project.screens,
+    };
+  });
 
   return (
     <section id="projects" className="mb-24">
@@ -186,7 +111,7 @@ const Projects = () => {
               screens={project.screens}
             />
             <Box>
-              <Heading mb="3" size="8" style={{ fontWeight: 600 }}>
+              <Heading as="h3" mb="3" size="8" style={{ fontWeight: 600 }}>
                 {project.title}
               </Heading>
               <Text

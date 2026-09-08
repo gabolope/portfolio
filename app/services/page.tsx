@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicesContact from "./ServicesContact";
+import ServicesFAQ from "./ServicesFAQ";
 import ServicesHero from "./ServicesHero";
 import ServicesOfferings from "./ServicesOfferings";
 import ServicesPricing from "./ServicesPricing";
@@ -42,13 +43,12 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <div className="py-4 mb-8">
-        <ServicesHero />
-      </div>
+      <ServicesHero />
       <ServicesOfferings />
       <ServicesProof />
       <ServicesProcess />
       <ServicesPricing />
+      <ServicesFAQ />
       <ServicesContact />
     </>
   );

@@ -63,7 +63,7 @@ const ServicesPricing = () => {
   ];
 
   return (
-    <section className="mb-24">
+    <section className="mb-16">
       <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
       <Grid gap="5" columns={{ initial: "1", sm: "3" }} mb="6">
         {packages.map((pkg, index) => (
@@ -77,7 +77,7 @@ const ServicesPricing = () => {
                 padding: "30px 26px",
               }}
             >
-              <Heading mb="3" size="5">
+              <Heading as="h3" mb="3" size="5">
                 {pkg.title}
               </Heading>
               <Text

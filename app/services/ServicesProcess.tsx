@@ -58,7 +58,7 @@ const ServicesProcess = () => {
   ];
 
   return (
-    <section className="mb-24">
+    <section className="mb-16">
       <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
       <Grid gap="5" columns={{ initial: "1", sm: "2", md: "4" }}>
         {steps.map((step, index) => (
@@ -76,7 +76,7 @@ const ServicesProcess = () => {
               >
                 {String(index + 1).padStart(2, "0")}
               </Text>
-              <Heading mb="2" size={{ initial: "5", sm: "5" }}>
+              <Heading as="h3" mb="2" size={{ initial: "5", sm: "5" }}>
                 {step.title}
               </Heading>
               <Text style={{ color: "var(--muted)", lineHeight: 1.6 }}>

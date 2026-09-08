@@ -49,6 +49,7 @@ Detalles de pulido.
 - [x] **Escribir el `alt` de las dos imágenes** — ambas (`app/services/PhoneMockup.tsx` y `app/services/ServicesContact.tsx`) son puramente decorativas: el contenido real (título, texto) ya está en HTML accesible aparte, y las imágenes son ilustraciones de apoyo (mockup del teléfono, avión de papel). Ya tenían `alt=""` junto con `aria-hidden`, que es el tratamiento correcto para este caso — no hacía falta describirlas.
 - [ ] Botón de idioma tiene que tener mejor UI UX, que se note que es un botón de lenguaje y tenga algun ícono si es necesario.
 - [ ] **Revisar el sitio en mobile real** — no pude verificarlo bien desde el navegador remoto. Chequear especialmente el hero, el espaciado entre secciones y el tamaño de los botones.
+- [ ] emails: debe aparecer el indicador de los campos que hacen falta para mandarlo (nombre, descripcion, email o numero)
 
 ---
 
