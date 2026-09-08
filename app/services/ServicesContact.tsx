@@ -10,14 +10,14 @@ import { useLanguage } from "../context/LanguageContext";
 
 const translations = {
   en: {
-    eyebrowIndex: "03",
+    eyebrowIndex: "05",
     eyebrowLabel: "Let's Talk",
     title: "Ready to start a project?",
     subtitle:
       "Tell me what you need and we'll get in touch to work on it, your question is welcomed.",
   },
   es: {
-    eyebrowIndex: "03",
+    eyebrowIndex: "05",
     eyebrowLabel: "Hablemos",
     title: "¿Listo para empezar un proyecto?",
     subtitle:

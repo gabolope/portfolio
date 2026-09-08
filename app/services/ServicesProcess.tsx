@@ -7,7 +7,7 @@ import { useLanguage } from "../context/LanguageContext";
 
 const translations = {
   en: {
-    eyebrowIndex: "02",
+    eyebrowIndex: "03",
     eyebrowLabel: "How I Work",
     title: "Process",
     s1t: "Initial Meeting",
@@ -20,7 +20,7 @@ const translations = {
     s4d: "Project deployment and verification that everything works correctly.",
   },
   es: {
-    eyebrowIndex: "02",
+    eyebrowIndex: "03",
     eyebrowLabel: "Cómo trabajo",
     title: "Proceso",
     s1t: "Reunión Inicial",

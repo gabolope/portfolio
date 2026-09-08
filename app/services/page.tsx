@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import ServicesContact from "./ServicesContact";
 import ServicesHero from "./ServicesHero";
 import ServicesOfferings from "./ServicesOfferings";
+import ServicesPricing from "./ServicesPricing";
 import ServicesProcess from "./ServicesProcess";
+import ServicesProof from "./ServicesProof";
 
 export const metadata: Metadata = {
   title: "Servicios Web | Gabriel López",
@@ -44,7 +46,9 @@ export default function ServicesPage() {
         <ServicesHero />
       </div>
       <ServicesOfferings />
+      <ServicesProof />
       <ServicesProcess />
+      <ServicesPricing />
       <ServicesContact />
     </>
   );
