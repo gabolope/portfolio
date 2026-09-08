@@ -64,7 +64,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: "Gabriel López | Frontend Developer",
   description:
-    "Frontend Developer specializing in React, Next.js and TypeScript. Explore my portfolio featuring web applications, freelance projects and modern frontend development.",
+    "Portafolio de Gabriel López: aplicaciones web y proyectos freelance con foco en resultados reales para cada negocio y cliente.",
   keywords: [
     "Gabriel Alejandro López",
     "Frontend Developer",
@@ -82,10 +82,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gabriel Alejandro López | Frontend Developer",
     description:
-      "Portfolio showcasing React, Next.js and TypeScript projects, freelance work and modern web development.",
+      "Descubrí el portafolio de Gabriel López: aplicaciones web, proyectos freelance y soluciones digitales pensadas para resolver problemas reales.",
     url: "https://gabriellopez.com.ar",
     siteName: "Gabriel Alejandro López Portfolio",
-    locale: "en_US",
+    locale: "es_AR",
     type: "website",
     images: [
       {
@@ -99,7 +99,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Gabriel Alejandro López | Frontend Developer",
-    description: "Portfolio showcasing React, Next.js and TypeScript projects.",
+    description:
+      "Portafolio de Gabriel López: aplicaciones web y proyectos freelance con foco en resultados reales.",
     images: ["/og.webp"],
   },
   robots: {

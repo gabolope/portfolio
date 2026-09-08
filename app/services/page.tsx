@@ -5,13 +5,13 @@ import ServicesOfferings from "./ServicesOfferings";
 import ServicesProcess from "./ServicesProcess";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development Services | Gabriel López",
+  title: "Servicios Web | Gabriel López",
   description:
-    "Freelance frontend and full-stack developer available for landing pages, web applications and AI-powered features, built with React, Next.js, TypeScript and Node.js.",
+    "Sitios web y aplicaciones a medida para comercios y emprendimientos. Contame tu proyecto y recibí un presupuesto claro, sin vueltas.",
   openGraph: {
-    title: "Freelance Web Development Services | Gabriel López",
+    title: "Servicios Web | Gabriel López",
     description:
-      "Freelance frontend and full-stack developer available for landing pages, web applications and AI-powered features.",
+      "Desarrollo sitios web y aplicaciones a medida para que tu negocio venda más y atienda mejor a tus clientes. Contame tu proyecto y te paso un presupuesto claro.",
     url: "https://gabriellopez.com.ar/services",
     siteName: "Gabriel Alejandro López Portfolio",
     locale: "es_AR",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freelance Web Development Services | Gabriel López",
+    title: "Servicios Web | Gabriel López",
     description:
-      "Freelance frontend and full-stack developer available for landing pages, web applications and AI-powered features.",
+      "Desarrollo sitios web y aplicaciones a medida para que tu negocio venda más y atienda mejor a tus clientes. Contame tu proyecto y te paso un presupuesto claro.",
     images: ["/og.webp"],
   },
 };

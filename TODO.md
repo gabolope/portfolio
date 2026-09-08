@@ -26,7 +26,7 @@ Mejoras de copy, estructura y SEO. Impacto real pero no urgente.
   - "Funcionalidades con IA" es abstracto para un dueño de local. Concretar: un bot que responde consultas por WhatsApp fuera de horario, un buscador que entiende lenguaje natural.
 - [ ] **Cambiar el texto de los CTAs** — hoy dicen el canal ("EMAIL", "WHATSAPP"). Que digan la acción: "Pedime un presupuesto", "Contame tu proyecto".
 - [ ] **Agregar subtítulo en el hero que diga para quién es** — "Para comercios, estudios y emprendimientos de Mar del Plata".
-- [ ] **Traducir la meta description al español** — hoy dice "Freelance frontend and full-stack developer available for landing pages..." en una página en español. Escribirla pensando en la PyME que la ve en Google: resultados, no stack.
+- [x] **Traducir la meta description al español** — reescritas en `app/services/page.tsx` (`description`, `openGraph.description`, `twitter.description`) en español, orientadas a resultado para el dueño de PyME ("más ventas, mejor atención a tus clientes, presupuesto claro") en vez de listar el stack técnico. Aplicado el mismo criterio a la página general (`app/layout.tsx`): descripciones traducidas al español con foco en resultados en vez de listar tecnologías, y corregido `openGraph.locale` de `en_US` a `es_AR` para que coincida con el idioma real del contenido.
 
 ### Estructura
 
