@@ -46,8 +46,8 @@ Mejoras de copy, estructura y SEO. Impacto real pero no urgente.
 
 Detalles de pulido.
 
-- [ ] **Corregir doble punto** — card de Aplicaciones Web: "sin importar su complejidad**..**"
-- [ ] **Escribir el `alt` de las dos imágenes** — ambas tienen `alt=""` (mockup del teléfono y avión de papel). Si son decorativas, dejar `alt=""` y marcarlas `aria-hidden`; si no, describirlas.
+- [x] **Corregir doble punto** — card de Aplicaciones Web: corregido `sin importar su complejidad..` → `sin importar su complejidad.` en `app/services/ServicesOfferings.tsx`.
+- [x] **Escribir el `alt` de las dos imágenes** — ambas (`app/services/PhoneMockup.tsx` y `app/services/ServicesContact.tsx`) son puramente decorativas: el contenido real (título, texto) ya está en HTML accesible aparte, y las imágenes son ilustraciones de apoyo (mockup del teléfono, avión de papel). Ya tenían `alt=""` junto con `aria-hidden`, que es el tratamiento correcto para este caso — no hacía falta describirlas.
 - [ ] **Revisar el sitio en mobile real** — no pude verificarlo bien desde el navegador remoto. Chequear especialmente el hero, el espaciado entre secciones y el tamaño de los botones.
 
 ---

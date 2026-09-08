@@ -27,7 +27,7 @@ const translations = {
     o1t: "Sitios Web",
     o1d: "Páginas diseñadas para resaltar tu marca. Ya sea que tu marca tenga un estilo propio o necesites uno nuevo, mi diseño se adapta a tus necesidades.",
     o2t: "Aplicaciones Web",
-    o2d: "Sistemas de inventariado, de cobro, de respuesta de mensajes. Diseño aplicaciones que simplifican problemas sin importar su complejidad..",
+    o2d: "Sistemas de inventariado, de cobro, de respuesta de mensajes. Diseño aplicaciones que simplifican problemas sin importar su complejidad.",
     o3t: "Funcionalidades con IA",
     o3d: "Integraciones prácticas con agentes IA que te asisten en tus tareas.",
     o4t: "Mantenimiento y Soporte Técnico",
