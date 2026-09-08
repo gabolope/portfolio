@@ -29,6 +29,21 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
+const professionalServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Gabriel Alejandro López",
+  image: "https://gabriellopez.com.ar/og.webp",
+  url: "https://gabriellopez.com.ar",
+  telephone: "+542235597430",
+  description:
+    "Desarrollo de sitios web y aplicaciones a medida para comercios y emprendimientos, con atención remota y presencial.",
+  sameAs: [
+    "https://www.linkedin.com/in/gabriel-alejandro-l%C3%B3pez/",
+    "https://github.com/gabolope",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,6 +56,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(professionalServiceJsonLd).replace(
+              /</g,
+              "\\u003c"
+            ),
+          }}
+        />
         <Providers>
           <LanguageProvider>
             <Theme accentColor="green">
@@ -79,6 +103,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Gabriel Alejandro López" }],
   creator: "Gabriel Alejandro López",
   metadataBase: new URL("https://gabriellopez.com.ar"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Gabriel Alejandro López | Frontend Developer",
     description:

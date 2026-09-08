@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Servicios Web | Gabriel López",
   description:
     "Sitios web y aplicaciones a medida para comercios y emprendimientos. Contame tu proyecto y recibí un presupuesto claro, sin vueltas.",
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
     title: "Servicios Web | Gabriel López",
     description:

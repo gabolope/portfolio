@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contacto | Gabriel López",
   description:
     "Contame sobre tu proyecto: qué necesitás, presupuesto aproximado y cómo contactarte. Te respondo en uno o dos días.",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contacto | Gabriel López",
     description:

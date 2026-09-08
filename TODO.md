@@ -37,8 +37,8 @@ Mejoras de copy, estructura y SEO. Impacto real pero no urgente.
 ### SEO
 
 - [x] **Definir un único dominio: redirigir `www.` → apex.** Agregado un redirect 308 en `next.config.ts` (`www.gabriellopez.com.ar` → `gabriellopez.com.ar`, vía matching por `host`), consistente con el dominio ya usado en la metadata. Falta confirmar en el dashboard de Vercel que `www.gabriellopez.com.ar` esté agregado como dominio del proyecto — si no está agregado, el redirect no corre porque el DNS de `www` no llega a la app.
-- [ ] **Agregar `<link rel="canonical">`** apuntando a `https://gabriellopez.com.ar` en cada página.
-- [ ] **Agregar Schema.org `ProfessionalService`** con localidad — ayuda para búsquedas tipo "hacer página web Mar del Plata".
+- [x] **Agregar `<link rel="canonical">`** — agregado `alternates.canonical` en `app/layout.tsx` (`/`), `app/services/page.tsx` (`/services`) y `app/contact/page.tsx` (`/contact`), resuelto contra el `metadataBase` (`https://gabriellopez.com.ar`) ya definido.
+- [x] **Agregar Schema.org `ProfessionalService`** — agregado JSON-LD en `app/layout.tsx` (aplica a todo el sitio) con nombre, teléfono, `sameAs` (LinkedIn/GitHub) y descripción que aclara atención remota y presencial. Sin `areaServed`/localidad a propósito, ya que el servicio no está limitado a una ciudad.
 
 ---
 
