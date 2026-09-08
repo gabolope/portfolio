@@ -32,6 +32,12 @@ const ServicesContact = () => {
 
   const socialLinks = [
     {
+      id: "whatsapp",
+      href: "https://wa.me/542235597430",
+      label: "WhatsApp",
+      icon: <FaWhatsapp />,
+    },
+    {
       id: "email",
       href: "mailto:gabriellopezmdp@gmail.com?subject=Freelance%20project%20inquiry&body=Hi%20Gabriel,%20I'd%20like%20to%20talk%20about%20a%20project...",
       label: "Email",
@@ -43,49 +49,45 @@ const ServicesContact = () => {
       label: "LinkedIn",
       icon: <FaLinkedin />,
     },
-    {
-      id: "whatsapp",
-      href: "https://wa.me/542235597430",
-      label: "WhatsApp",
-      icon: <FaWhatsapp />,
-    },
   ];
 
   return (
     <section id="contact">
       <SectionHeading index={eyebrowIndex} label={eyebrowLabel} title={title} />
-      <Grid columns={{ initial: "1", md: "2" }} gap="7" align="center">
-        <Box>
-          <Text
-            as="p"
-            size="4"
-            mb="7"
-            style={{ color: "var(--muted)", maxWidth: "58ch", lineHeight: 1.7 }}
+      <Grid columns="2" gap={{ initial: "4", md: "7" }} align="center">
+        <Text
+          as="p"
+          size="4"
+          className="col-start-1 col-span-2 row-start-1 md:col-span-1"
+          style={{ color: "var(--muted)", maxWidth: "58ch", lineHeight: 1.7 }}
+        >
+          {subtitle}
+        </Text>
+        <Flex justify="start" className="col-start-1 row-start-2">
+          <Grid
+            columns={{ initial: "1", sm: "3" }}
+            gap={{ initial: "3", sm: "6" }}
           >
-            {subtitle}
-          </Text>
-          <Flex justify="start">
-            <Grid columns={{ initial: "3" }} gap={{ initial: "4", sm: "6" }}>
-              {socialLinks.map(({ id, href, label, icon }, index) => (
-                <FadeInOnView key={id} index={index} delay={100}>
-                  <SocialButton href={href} openInNewTab>
-                    {icon}
-                    {label}
-                  </SocialButton>
-                </FadeInOnView>
-              ))}
-            </Grid>
-          </Flex>
+            {socialLinks.map(({ id, href, label, icon }, index) => (
+              <FadeInOnView key={id} index={index} delay={100}>
+                <SocialButton href={href} openInNewTab>
+                  {icon}
+                  {label}
+                </SocialButton>
+              </FadeInOnView>
+            ))}
+          </Grid>
+        </Flex>
+        <Box className="col-start-2 row-start-2 md:row-start-1 md:row-span-2">
+          <FadeInOnView index={2} direction="right" delay={150}>
+            <img
+              src="/services/contact.svg"
+              alt=""
+              aria-hidden
+              className="mx-auto w-full max-w-65 md:max-w-75"
+            />
+          </FadeInOnView>
         </Box>
-        <FadeInOnView index={2} direction="right" delay={150}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/services/contact.svg"
-            alt=""
-            aria-hidden
-            className="mx-auto w-full max-w-65 md:max-w-75"
-          />
-        </FadeInOnView>
       </Grid>
     </section>
   );

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og.webp",
         width: 1200,
         height: 630,
         alt: "Gabriel Alejandro López Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Freelance Web Development Services | Gabriel López",
     description:
       "Freelance frontend and full-stack developer available for landing pages, web applications and AI-powered features.",
-    images: ["/og-image.png"],
+    images: ["/og.webp"],
   },
 };
 

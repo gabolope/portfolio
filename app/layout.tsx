@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es-AR"
       className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
@@ -78,18 +78,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Gabriel Alejandro López" }],
   creator: "Gabriel Alejandro López",
-  metadataBase: new URL("https://your-domain.com"),
+  metadataBase: new URL("https://gabriellopez.com.ar"),
   openGraph: {
     title: "Gabriel Alejandro López | Frontend Developer",
     description:
       "Portfolio showcasing React, Next.js and TypeScript projects, freelance work and modern web development.",
-    url: "https://your-domain.com",
+    url: "https://gabriellopez.com.ar",
     siteName: "Gabriel Alejandro López Portfolio",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og.webp",
         width: 1200,
         height: 630,
         alt: "Gabriel Alejandro López Portfolio",
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gabriel Alejandro López | Frontend Developer",
     description: "Portfolio showcasing React, Next.js and TypeScript projects.",
-    images: ["/og-image.png"],
+    images: ["/og.webp"],
   },
   robots: {
     index: true,
