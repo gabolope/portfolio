@@ -39,7 +39,7 @@ const ServicesContact = () => {
     },
     {
       id: "email",
-      href: "mailto:gabriellopezmdp@gmail.com?subject=Freelance%20project%20inquiry&body=Hi%20Gabriel,%20I'd%20like%20to%20talk%20about%20a%20project...",
+      href: "/contact",
       label: "Email",
       icon: <MdOutlineEmail />,
     },
@@ -70,7 +70,7 @@ const ServicesContact = () => {
           >
             {socialLinks.map(({ id, href, label, icon }, index) => (
               <FadeInOnView key={id} index={index} delay={100}>
-                <SocialButton href={href} openInNewTab>
+                <SocialButton href={href} openInNewTab={id !== "email"}>
                   {icon}
                   {label}
                 </SocialButton>

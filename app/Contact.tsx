@@ -63,7 +63,7 @@ const Contact = () => {
   const socialLinks = [
     {
       id: "email",
-      href: "mailto:gabriellopezmdp@gmail.com?subject=Contact%20from%20Portfolio&body=Hi,%20I%20saw%20your%20online%20portfolio...",
+      href: "/contact",
       label: "Email",
       icon: <MdOutlineEmail />,
     },
@@ -145,7 +145,7 @@ const Contact = () => {
         >
           {socialLinks.map(({ id, href, label, icon }, index) => (
             <FadeInOnView key={id} index={index} delay={100}>
-              <SocialButton href={href} openInNewTab>
+              <SocialButton href={href} openInNewTab={id !== "email"}>
                 {icon}
                 {label}
               </SocialButton>

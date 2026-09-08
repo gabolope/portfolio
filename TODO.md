@@ -9,7 +9,7 @@
 
 ### Conversión
 
-- [ ] **Reemplazar el `mailto:` por un formulario corto** — campos: nombre, qué necesitás, presupuesto aproximado (rango), cómo te contacto. Dejar WhatsApp como opción rápida secundaria. El mailto asume un cliente de correo configurado y deja al visitante frente a una hoja en blanco.
+- [x] **Reemplazar el `mailto:` por un formulario corto** — nueva página `/contact` (`app/contact/`) con formulario (nombre, qué necesitás, presupuesto aproximado, cómo contactarte) que envía el mail vía Resend desde `app/api/contact/route.ts`. WhatsApp queda como opción rápida secundaria debajo del formulario. Los botones de "Email" en `HoverBar`, `Contact`, `ServicesHero` y `ServicesContact` ahora llevan a `/contact` en vez de abrir el cliente de correo. Falta cargar `RESEND_API_KEY` real en `.env.local` (ver `.env.example`) — sin eso el envío falla con un error controlado y el visitante ve el fallback a WhatsApp.
 - [ ] **Agregar pruebas / trabajos hechos** — 2 o 3 proyectos con captura, nombre del cliente y una línea de qué problema resolvió. Ya tenés `thermoreleaf.com.ar` y `kreart-dpm.com`. El visitante de /services no debería tener que ir a buscarlos a otra sección.
 - [ ] **Agregar rango de precios** — "proyectos desde $X" o tres paquetes con rango. Elimina el miedo principal de una PyME ("esto debe salir carísimo") y filtra consultas.
 

@@ -149,6 +149,11 @@ body {
   flex: none;
 }
 
+/* Variant: swap the status dot for an icon, e.g. an envelope on a contact eyebrow */
+.eyebrow--icon::before {
+  content: none;
+}
+
 /* Section header: index + label + trailing hairline rule */
 .section-label {
   display: flex;

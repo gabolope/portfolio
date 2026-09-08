@@ -63,7 +63,7 @@ export default HoverBar;
 
 const iconLinks = [
   {
-    href: "mailto:gabriellopezmdp@gmail.com?subject=Contact%20from%20Portfolio&body=Hi,%20I%20saw%20your%20online%20portfolio...",
+    href: "/contact",
     icon: <MdOutlineEmail size={30} />,
     label: "Email",
     target: "_self",

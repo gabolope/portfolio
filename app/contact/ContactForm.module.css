@@ -1,0 +1,126 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  background: var(--surface);
+  border: 1.3px solid var(--line);
+  border-radius: 3px;
+  padding: 12px 14px;
+  color: var(--fg);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--signal);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submit {
+  min-width: 170px;
+  height: 44px;
+  padding: 0 22px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  border-radius: 3px;
+  z-index: 0;
+  overflow: hidden;
+  border: 1.3px solid var(--signal);
+  background: var(--signal);
+  color: var(--accent-fg);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.submit::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: width 0.3s ease;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--solid-bg);
+}
+
+.submit:not(:disabled):hover::after {
+  width: 100%;
+}
+
+.submit:not(:disabled):hover {
+  color: var(--solid-fg);
+  border-color: var(--solid-bg);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.statusOk {
+  border: 1px solid var(--signal);
+  background: var(--signal-soft);
+  color: var(--fg);
+  padding: 14px 16px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.statusError {
+  border: 1px solid var(--amber);
+  background: rgba(194, 121, 46, 0.1);
+  color: var(--fg);
+  padding: 14px 16px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
