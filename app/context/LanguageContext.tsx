@@ -21,11 +21,8 @@ export const LanguageProvider = ({
 
   useEffect(() => {
     const saved = localStorage.getItem("language") as Language | null;
-    if (saved) {
+    if (saved === "en" || saved === "es") {
       setLanguage(saved);
-    } else {
-      const browserLang = navigator.language?.slice(0, 2).toLowerCase();
-      setLanguage(browserLang === "en" ? "en" : "es");
     }
   }, []);
 
